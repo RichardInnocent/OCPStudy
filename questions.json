@@ -1,0 +1,9 @@
+{
+  "questions": [
+    {
+      "question": "When is `object instanceof Object` false?",
+      "page": 8,
+      "answer": "`object == null`"
+    }
+  ]
+}
