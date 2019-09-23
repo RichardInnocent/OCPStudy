@@ -216,7 +216,7 @@
       "answer": "It enforces that the type must be of the same type, or a supertype of the lower bound. It means that objects of the lower bound type are always safe to be added.\nExample: `List<? super String>`"
     },
     {
-      "question": "What does the following `List` method do?\n```void add (int index, E element)```",
+      "question": "What does the following `List` method do?\n```void add(int index, E element)```",
       "page": 130,
       "answer": "Adds the element at the specified index, and moves the rest of the elements towards the end."
     },

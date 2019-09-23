@@ -63,9 +63,7 @@ class Question:
             print('Question ' + str(question_number) + ' of ' + str(total_questions))
         _wait_for_input(self._question)
         print('\n' + self._answer)
-        print('Page reference: ' + str(self._page), end='')
-        print('. Press any key.' if question_number < total_questions else '')
-        print('\n\n')
+        print('Page reference: ' + str(self._page) + '.\n\n')
 
 
 def load(path='questions.json'):
