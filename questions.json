@@ -11,7 +11,7 @@
       "answer": "`object2` is a class (not an interface) and `object1` does not directly or indirectly extend it"
     },
     {
-      "question": "Will this code compile? Why?\n```\npublic interface Mother {}\nclass Hippo extends HeavyAnimal {}\n...\nHeavyAnimal hippo = new HeavyAnimal();\nhippo instanceof Mother;```",
+      "question": "Will this code compile? Why?\n```\npublic interface Mother {}\nclass Hippo extends HeavyAnimal {}\n...\nHeavyAnimal hippo = new Hippo();\nhippo instanceof Mother;```",
       "page": 8,
       "answer": "Yes - unlike with classes, the compiler has no way of determining if `Hippo` implements `Mother`, as `Mother` is an interface"
     },
