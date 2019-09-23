@@ -4,6 +4,156 @@
       "question": "When is `object instanceof Object` false?",
       "page": 8,
       "answer": "`object == null`"
+    },
+    {
+      "question": "When will `object1 instanceof object2` not compile?",
+      "page": 8,
+      "answer": "`object2` is a class (not an interface) and `object1` does not directly or indirectly extend it"
+    },
+    {
+      "question": "Will this code compile? Why?```\n  public interface Mother {}\n  class Hippo extends HeavyAnimal {}\n  ...\n  HeavyAnimal hippo = new HeavyAnimal();\n  hippo instanceof Mother;```",
+      "page": 8,
+      "answer": "Yes - unlike with classes, the compiler has no way of determining if `Hippo` implements `Mother`, as `Mother` is an interface"
+    },
+    {
+      "question": "What is a virtual method?",
+      "page": 10,
+      "answer": "A non-static method"
+    },
+    {
+      "question": "How does the `hashCode()` method relate to `equals()`?",
+      "page": 10,
+      "answer": "If `obj1.equals(obj2)` then `obj1.hashCode() == obj2.hashCode()`. Therefore, `hashCode` should only use the fields (or a subset of fields) used in the `equals` method. However, `obj1.hashCode() == obj2.hashCode()` does not necessarily infer that `obj1.equals(obj2)`."
+    },
+    {
+      "question": "How is an enum's numeric constant assigned?",
+      "page": 21,
+      "answer": "In the order they are declared (from 0)."
+    },
+    {
+      "question": "How do you get an enum's numeric constant?",
+      "page": 22,
+      "answer": "enumValue.ordinal()"
+    },
+    {
+      "question": "Can you extend an enum?",
+      "page": 22,
+      "answer": "No"
+    },
+    {
+      "question": "What is a nested class?",
+      "page": 24,
+      "answer": "A class defined within another class"
+    },
+    {
+      "question": "What is an inner class?",
+      "page": 24,
+      "answer": "A non-static nested class"
+    },
+    {
+      "question": "Which access modifiers can be used for member inner classes?",
+      "page": 25,
+      "answer": "All"
+    },
+    {
+      "question": "Which classes can be extended by member inner classes?",
+      "page": 25,
+      "answer": "Any"
+    },
+    {
+      "question": "Which interfaces can be implemented by member inner classes?",
+      "page": 25,
+      "answer": "Any"
+    },
+    {
+      "question": "Can member inner classes be static and/or final?",
+      "page": 25,
+      "answer": "Can be abstract or final"
+    },
+    {
+      "question": "Can member inner classes declare static fields or methods?",
+      "page": 25,
+      "answer": "No"
+    },
+    {
+      "question": "Can member inner classes access members of the outer class?",
+      "page": 25,
+      "answer": "Yes. They can access all fields, including private fields"
+    },
+    {
+      "question": "From outside the outer class, `Outer`, how could you create an instance of the inner class, `Inner`?",
+      "page": 26,
+      "answer": "```  Outer outer = new Outer();\n  Inner inner = outer.new Inner();```"
+    },
+    {
+      "question": "Can members with the same name be created in both an outer class and an inner class?",
+      "page": 26,
+      "answer": "Yes"
+    },
+    {
+      "question": "How would you retrieve the values for the variable, `a`, from the outer class, `Outer`, if the inner class, `Inner`, also has a member with the same name from `Inner`?",
+      "page": 26,
+      "answer": "`Outer.this.a`"
+    },
+    {
+      "question": "Can an interface be private?",
+      "page": 27,
+      "answer": "Yes, if it is declared within a class"
+    },
+    {
+      "question": "Which access modifiers can be used for local inner classes?",
+      "page": 28,
+      "answer": "None"
+    },
+    {
+      "question": "Can local inner classes have static members?",
+      "page": 28,
+      "answer": "No"
+    },
+    {
+      "question": "Can local inner classes access members of the outer class?",
+      "page": 28,
+      "answer": "Yes. They can access all members, including private members."
+    },
+    {
+      "question": "Why are fields used in local inner classes required to be final or effectively final?",
+      "page": 28,
+      "answer": "A class file is generated for the local inner class, which has no way to reference the method variables. These variables can be passed in via the constructor, or by storing them in the class file, but Java has no way of knowing what they are later changed to"
+    },
+    {
+      "question": "How do you import a static nested class?",
+      "page": 32,
+      "answer": "Either: `import Outer.Inner` or `import static Outer.Inner`"
+    },
+    {
+      "question": "Can an interface have variables?",
+      "page": 48,
+      "answer": "Yes, but only if they are public, static and final"
+    },
+    {
+      "question": "Can an interface contain static methods?",
+      "page": 48,
+      "answer": "Yes"
+    },
+    {
+      "question": "Why won't this code compile?\n```  public interface Truck{default void drive() {}}\n  public interface Car {default void drive() {}}\n  class Pickup implements Car, Truck{}",
+      "page": 51,
+      "answer": "The class implements two interfaces with the same default method. For this to compile successfully, `Pickup` would need to override the `drive` method."
+    },
+    {
+      "question": "In the JavaBean definition, how would you define a getter method for a boolean, `canJump`?",
+      "page": 70,
+      "answer": "Either\n```  public boolean isCanJump() { return canJump; }```\nor\n```  public boolean getCanJump() { return canJump; }```"
+    },
+    {
+      "question": "In the JavaBean definition, how would you define a getter method for a Boolean, `canJump`?",
+      "page": 70,
+      "answer": "```  public Boolean getCanJump() { return canJump; }```\n`canJump` is an object, not a boolean, so it must be prefixed with get"
+    },
+    {
+      "question": "What is object composition?",
+      "page": 74,
+      "answer": "Combining classes into one another when inheritance/polymorphism doesn't make sense."
     }
   ]
 }
