@@ -288,6 +288,141 @@
     {
       "question": "What is an `ArrayDeque`?",
       "answer": "A resizable-array implementation of a double-ended queue."
+    },
+    {
+      "question": "What is the difference between a `Queue` and a `Stack`, and what are the methods called?",
+      "page": 135,
+      "answer": "Stack: LIFO, push/poll/peek\nQueue: FIFO, offer/poll/peek"
+    },
+    {
+      "question": "What are the adding and retrieving algorithm efficiencies for `HashMap` compared with `TreeMap`?",
+      "page": 138,
+      "answer": "Method\t`HashMap` efficiency\t`TreeMap` efficiency\nAdd\tO(1)\tO(log(n))\nGet\tO(1)\tO(log(n))"
+    },
+    {
+      "question": "What is the order of the elements when `TreeMap.values()` is called?",
+      "page": 140,
+      "answer": "In the order of the corresponding keys (i.e. natural order of the keys)."
+    },
+    {
+      "question": "Which Java Collections Framework interface/s does an `ArrayList` implement?",
+      "page": 141,
+      "answer": "`List`"
+    },
+    {
+      "question": "Which Java Collections Framework interface/s does an `ArrayDeque` implement?",
+      "page": 141,
+      "answer": "`Queue`"
+    },
+    {
+      "question": "Which Java Collections Framework interface/s does a `HashMap` implement?",
+      "page": 141,
+      "answer": "`Map`"
+    },
+    {
+      "question": "Which Java Collections Framework interface/s does a `HashSet` implement?",
+      "page": 141,
+      "answer": "`Set`"
+    },
+    {
+      "question": "Which Java Collections Framework interface/s does a `Hashtable` implement?",
+      "page": 141,
+      "answer": "`Map`"
+    },
+    {
+      "question": "Which Java Collections Framework interface/s does a `LinkedList` implement?",
+      "page": 141,
+      "answer": "`List`, `Queue`"
+    },
+    {
+      "question": "Which Java Collections Framework interface/s does a `Stack` implement?",
+      "page": 141,
+      "answer": "`List`"
+    },
+    {
+      "question": "Which Java Collections Framework interface/s does a `TreeMap` implement?",
+      "page": 141,
+      "answer": "`Map`"
+    },
+    {
+      "question": "Which Java Collections Framework interface/s does a `TreeSet` implement?",
+      "page": 141,
+      "answer": "`Set`"
+    },
+    {
+      "question": "Which Java Collections Framework interface/s does a `Vector` implement?",
+      "page": 141,
+      "answer": "`List`"
+    },
+    {
+      "question": "Does `ArrayDeque` support `null`s? Why?",
+      "page": 141,
+      "answer": "No. `null` has a special meaning in `ArrayDeque` methods like `poll()`."
+    },
+    {
+      "question": "When sorting `String`s, what is the order of these: lowercase letters, uppercase letters, numbers?",
+      "page": 143,
+      "answer": "Numbers, uppercase letters, lowercase letters"
+    },
+    {
+      "question": "What are the rules when implementing the `Comparable` interface?",
+      "page": 144,
+      "answer": "0 is returned when this object is equal to the provided argument\nA number < 0 is returned when this object is smaller than the provided argument\nA number > 0 is returned when this object is larger than the provided argument"
+    },
+    {
+      "question": "When is `compareTo` consistent with `equals`?",
+      "page": 146,
+      "answer": "When `compareTo(obj)` is `0` when (and only when) `equals(obj)` is `true`"
+    },
+    {
+      "question": "Which package is the `Comparable` interface in?",
+      "page": 148,
+      "answer": "java.lang"
+    },
+    {
+      "question": "What is the method signature of the `Comparable` interface method?",
+      "page": 148,
+      "answer": "`public int compareTo(T t);`"
+    },
+    {
+      "question": "Which package is the `Comparator` interface in?",
+      "page": 148,
+      "answer": "java.util"
+    },
+    {
+      "question": "What is the method signature of the `Comparator` interface method?",
+      "page": 148,
+      "answer": "`public int compare(T obj1, T obj2);`"
+    },
+    {
+      "question": "What are the two primary `Collections.sort` method signatures?",
+      "page": 150,
+      "answer": "`public static <T> void sort(List<T> list, Comparator<? super T> c);`\n`public static <T extends Comparable<? super T>> void sort(List<T> list);`"
+    },
+    {
+      "question": "Why won't the following snippet compile, and what are the two ways this can be resolved?\n```class Rabbit { int id; }\n...\nSet<Rabbit> rabbits = new TreeSet<>();\nrabbits.add(new Rabbit());```",
+      "page": 151,
+      "answer": "`Rabbit` does not implement `Comparable`, so a `ClassCastException` will be thrown. This can be resolved by either:\n1. make the `Rabbit` class implement `Comparable`.\n2. Pass a `Comparator` to the `TreeSet` constructor, e.g. `new TreeSet<>((rabbit1, rabbit2) -> rabbit1.id - rabbit2.id);`"
+    },
+    {
+      "question": "What is the method signature of the `List.replaceAll` method, and what does it do?",
+      "page": 155,
+      "answer": "`void replaceAll(UnaryOperator<E> o);`\nIt replaces all elements in the list with the results from the `UnaryOperator`."
+    },
+    {
+      "question": "What is the `Map.merge`'s method signature, and what does it do?",
+      "page": 156,
+      "answer": "`V merge(K var1, V var2, BiFunction<? super V, ? super V, ? extends V> var3)`;\nIt gets the value for the provided key, and the potential, then passes these both to the `BiFunction` to see what the value should actually be set to."
+    },
+    {
+      "question": "What happens when `Map.merge` is applied to key such that `map.get(key) == null`?",
+      "page": 156,
+      "answer": "The value for the key is set to the new value passed into the `merge` method."
+    },
+    {
+      "question": "What happens when the `BiFunction` in the `Map.merge` returns `null`?",
+      "page": 156,
+      "answer": "The key is removed from the map."
     }
   ]
 }
