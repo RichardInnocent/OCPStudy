@@ -77,7 +77,7 @@ def _load_questions(path):
     questions = json.loads(file.read())
     compiled_questions = []
     for question in questions['questions']:
-        compiled_questions.append(Question(question['question'], question['page'], question['answer']))
+        compiled_questions.append(Question(question.get('question'), question.get('page'), question.get('answer')))
     return compiled_questions
 
 
