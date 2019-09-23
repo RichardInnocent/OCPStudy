@@ -213,7 +213,7 @@
     {
       "question": "What are lower-bounded wildcards, why would you use them, and how do you specify one?",
       "page": 122,
-      "answer": "It enforces that the type must be of the same type, or a supertype of the lower bound. It means that objects of the lower bound type are always safe to be added.\nExample: `List<? super String>`",
+      "answer": "It enforces that the type must be of the same type, or a supertype of the lower bound. It means that objects of the lower bound type are always safe to be added.\nExample: `List<? super String>`"
     },
     {
       "question": "What does the following `List` method do?\n```void add (int index, E element)```",
