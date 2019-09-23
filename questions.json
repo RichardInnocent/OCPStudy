@@ -11,7 +11,7 @@
       "answer": "`object2` is a class (not an interface) and `object1` does not directly or indirectly extend it"
     },
     {
-      "question": "Will this code compile? Why?```\n  public interface Mother {}\n  class Hippo extends HeavyAnimal {}\n  ...\n  HeavyAnimal hippo = new HeavyAnimal();\n  hippo instanceof Mother;```",
+      "question": "Will this code compile? Why?\n```\npublic interface Mother {}\nclass Hippo extends HeavyAnimal {}\n...\nHeavyAnimal hippo = new HeavyAnimal();\nhippo instanceof Mother;```",
       "page": 8,
       "answer": "Yes - unlike with classes, the compiler has no way of determining if `Hippo` implements `Mother`, as `Mother` is an interface"
     },
@@ -83,7 +83,7 @@
     {
       "question": "From outside the outer class, `Outer`, how could you create an instance of the inner class, `Inner`?",
       "page": 26,
-      "answer": "```  Outer outer = new Outer();\n  Inner inner = outer.new Inner();```"
+      "answer": "```Outer outer = new Outer();\nInner inner = outer.new Inner();```"
     },
     {
       "question": "Can members with the same name be created in both an outer class and an inner class?",
@@ -136,19 +136,19 @@
       "answer": "Yes"
     },
     {
-      "question": "Why won't this code compile?\n```  public interface Truck{default void drive() {}}\n  public interface Car {default void drive() {}}\n  class Pickup implements Car, Truck{}",
+      "question": "Why won't this code compile?\n```public interface Truck{default void drive() {}}\npublic interface Car {default void drive() {}}\nclass Pickup implements Car, Truck{}",
       "page": 51,
       "answer": "The class implements two interfaces with the same default method. For this to compile successfully, `Pickup` would need to override the `drive` method."
     },
     {
       "question": "In the JavaBean definition, how would you define a getter method for a boolean, `canJump`?",
       "page": 70,
-      "answer": "Either\n```  public boolean isCanJump() { return canJump; }```\nor\n```  public boolean getCanJump() { return canJump; }```"
+      "answer": "Either\n```public boolean isCanJump() { return canJump; }```\nor\n```public boolean getCanJump() { return canJump; }```"
     },
     {
       "question": "In the JavaBean definition, how would you define a getter method for a Boolean, `canJump`?",
       "page": 70,
-      "answer": "```  public Boolean getCanJump() { return canJump; }```\n`canJump` is an object, not a boolean, so it must be prefixed with get"
+      "answer": "```public Boolean getCanJump() { return canJump; }```\n`canJump` is an object, not a boolean, so it must be prefixed with get"
     },
     {
       "question": "What is object composition?",

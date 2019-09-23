@@ -7,6 +7,7 @@ class Quiz:
         self._questions = questions
 
     def start(self, random_order=True):
+        print('Quiz starting. Enter "q" at ay point to exit.\n')
         if random_order:
             shuffle(self._questions)
         self._serve_ordered()
@@ -36,15 +37,34 @@ class Question:
         return self._answer
 
     def _parse_input(self, input):
-        return input.replace('\\n', '\n')
+        input_with_lines = input.replace('\\n', '\n')
+        return self._process_markdown(input_with_lines)
+
+    def _process_markdown(self, text):
+        if '```' not in text:
+            return text
+        processed_text = ''
+        in_code_block = False
+        for line in text.splitlines():
+            if in_code_block:
+                processed_text += '  ' + line.replace('```', '')
+                in_code_block = '```' not in processed_text
+            else:
+                if line.startswith('```'):
+                    in_code_block = True
+                    processed_text += '  ' + line.replace('```', '')
+                else:
+                    processed_text += line
+            processed_text += '\n'
+        return processed_text[:-1]
 
     def serve(self, question_number, total_questions):
         if question_number is not None and total_questions is not None:
             print('Question ' + str(question_number) + ' of ' + str(total_questions))
-        input(self._question)
+        _wait_for_input(self._question)
         print('\n' + self._answer)
         print('Page reference: ' + str(self._page), end='')
-        print(' Press any key to view the next question' if question_number < total_questions else '')
+        print('. Press any key.' if question_number < total_questions else '')
         print('\n\n')
 
 
@@ -59,6 +79,12 @@ def _load_questions(path):
     for question in questions['questions']:
         compiled_questions.append(Question(question['question'], question['page'], question['answer']))
     return compiled_questions
+
+
+def _wait_for_input(prompt):
+    response = input(prompt)
+    if response == 'q' or response == 'Q':
+        exit()
 
 
 if __name__ == '__main__':
