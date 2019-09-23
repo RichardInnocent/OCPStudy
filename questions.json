@@ -154,6 +154,140 @@
       "question": "What is object composition?",
       "page": 74,
       "answer": "Combining classes into one another when inheritance/polymorphism doesn't make sense."
+    },
+    {
+      "question": "What are the rules for creating an immutable class?",
+      "page": 82,
+      "answer": "1. Use a constructor to set all properties.\n2. Mark all instance variables as private and final.\n3.Don't define setter methods.\n4.Don't allow mutable objects to be accessed.\n5. Prevent methods from being overriden."
+    },
+    {
+      "question": "How do you convert an array to a `List`?",
+      "page": 105,
+      "answer": "`Arrays.asList(array);`\nThis returns a fixed size list, backed by the array."
+    },
+    {
+      "question": "How do you convert a `List` to an array?",
+      "page": 105,
+      "answer": "`list.toArray();`"
+    },
+    {
+      "question": "What will be the results of the following?:\n```int[] array = new int[]{4,6,1,5,8};\nSystem.out.println(Arrays.binarySearch(array, 4));\nSystem.out.println(Arrays.binarySearch(array, 0));\nSystem.out.println(Arrays.binarySearch(array, 3));",
+      "page": 106,
+      "answer": "0\n-1\n-2"
+    },
+    {
+      "question": "What is type erasure?",
+      "page": 112,
+      "answer": "In order to be compatible with older Java versions, generics are actually just stored as `Object`s and cast at the appropriate time, behind the scenes."
+    },
+    {
+      "question": "What are the three ways to implement this interface, and what are the connotations of each?\n```public interface Shippable<T> { void ship(T t); }```",
+      "page": 112,
+      "answer": "Specify the generic type. In this case, we can only ship `String`s.\n```class Crate implements Shippable<String> { public void ship(String t) {} }```\n\nUse a generic type. In this manner, we can ship any object of type `T`.\n```class Crate<T> implements Shippable<T> { public void ship(T t) {} }```\n\nIgnore generic types. This generates a compiler warning as this will accept any `Object`.\n```class Crate implements Shippable { public void ship(Object o) {} }```"
+    },
+    {
+      "question": "How can you explicitly state the generic return type when calling a method?",
+      "page": 114,
+      "answer": "`Box.<String>ship(\"package\");`\nThis is optional."
+    },
+    {
+      "question": "What is the point of unbounded wildcards in generics, and give an example.",
+      "page": 118,
+      "answer": "The unbounded wildcard allows any generic.\n```public static void printList(List<?> list) { list.forEach(System.out::println); }```\nIf this was restricted to `List<Object>, trying to call this method with a `List<String>` would fail to compile."
+    },
+    {
+      "question": "What will be the result of the following?\n```Integer[] numbers = { new Integer(42) };\nObject[] objects = numbers;\nobjects[0] = \"forty-two\";",
+      "page": 118,
+      "answer": "An `ArrayStoreException` is thrown. Unlike with `Collection`s, the JVM remembers that `objects` ir really of type `Integer`."
+    },
+    {
+      "question": "What is an upper-bounded wildcard, and how would you define one?",
+      "page": 119,
+      "answer": "Similar to an unbounded wildcard, but forcing the type to match or extend the upper bound.\n```public static void sum(List<? extends Number> numbers) { ... }\nThis takes any `List` of `Number`s or subclasses of `Number`"
+    },
+    {
+      "question": "Why can't you add elements to an unbounded or upper-bounded wildcarded list?",
+      "page": 120,
+      "answer": "Java doesn't really know what type of list it has, so it can't enforce the type."
+    },
+    {
+      "question": "What are lower-bounded wildcards, why would you use them, and how do you specify one?",
+      "page": 122,
+      "answer": "It enforces that the type must be of the same type, or a supertype of the lower bound. It means that objects of the lower bound type are always safe to be added.\nExample: `List<? super String>`",
+    },
+    {
+      "question": "What does the following `List` method do?\n```void add (int index, E element)```",
+      "page": 130,
+      "answer": "Adds the element at the specified index, and moves the rest of the elements towards the end."
+    },
+    {
+      "question": "What are the differences between `HashSet` and `TreeSet`?",
+      "page": 132,
+      "answer": "A `TreeSet` saves the elements in order. `HashSet` adds and finds in O(n), while `TreeSet` does these in O(log(n))"
+    },
+    {
+      "question": "What are the four main methods of `NavigableSet`, and what do they do?",
+      "page": 134,
+      "answer": "`E lower(E e)`\nReturns the greatest element that is < `e`, or `null` if none found.\n\n`E floor(E e)`\nReturns the greatest element that is ≤ `e`, or `null` if none found.\n\n`E ceiling(E e)`\nReturns the smallest element that is ≥ `e`, or `null` if none found.\n\n`E higher(E e)`\nReturns the smallest element that is > `e`, or `null` if none found."
+    },
+    {
+      "question": "What does this method do?\n```boolean ArrayDeque.add(E e)```",
+      "page": 135,
+      "answer": "Adds an element to the back of the queue, and returns `true` if successful, or throws an exception"
+    },
+    {
+      "question": "What does the following method do?\n```E ArrayDeque.element()```",
+      "page": 135,
+      "answer": "Returns the next element, or throws an exception if empty queue."
+    },
+    {
+      "question": "What does the following method do?\n```boolean ArrayDeque.offer(E e)```",
+      "page": 135,
+      "answer": "Adds an element to the back of the queue, and returns `true` if successful or `false` if not."
+    },
+    {
+      "question": "What does the following method do?\n```E ArrayDeque.remove(E e)```",
+      "page": 135,
+      "answer": "Removes and returns the next element, or throws an exception if empty queue"
+    },
+    {
+      "question": "What does the following method do?\n```void ArrayDeque.push(E e)```",
+      "page": 135,
+      "answer": "Adds an element to the front of the queue"
+    },
+    {
+      "question": "What does the following method do?\n```E ArrayDeque.poll()```",
+      "page": 135,
+      "answer": "Removes and returns the next element or `null` if empty queue"
+    },
+    {
+      "question": "What does the following method do?\n```E ArrayDeque.peek()```",
+      "page": 135,
+      "answer": "Returns the next element, or `null` if empty queue"
+    },
+    {
+      "question": "What does the following method do?\n```E ArrayDeque.pop()```",
+      "page": 135,
+      "answer": "Removes and returns the next element, or throws exception if empty queue"
+    },
+    {
+      "question": "What are the four map implementations, and how do they differ from one another?",
+      "page": 138,
+      "answer": "`HashMap` - unsorted\n`LinkedHashMap` - in order of insertion\n`TreeMap` - in logical ordering\n`HashTable` - old, synchronised `HashMap`"
+    },
+    {
+      "question": "What are the return types of the following `Map` methods?\n```keySet()```\n```values()```",
+      "page": 139,
+      "answer": "`keySet()`: `Set<K>`\n`values()`: `Collection<V>`"
+    },
+    {
+      "question": "Which data structures don't allow `null`s?",
+      "page": 141,
+      "answer": "`TreeMap` (no `null` keys)\n`Hashtable` (no `null` keys or values)\n`TreeSet`\n`ArrayDeque`"
+    },
+    {
+      "question": "What is an `ArrayDeque`?",
+      "answer": "A resizable-array implementation of a double-ended queue."
     }
   ]
 }
