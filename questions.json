@@ -246,7 +246,7 @@
       "answer": "Adds an element to the back of the queue, and returns `true` if successful or `false` if not."
     },
     {
-      "question": "What does the following method do?\n```E ArrayDeque.remove(E e)```",
+      "question": "What does the following method do?\n```E ArrayDeque.remove()```",
       "page": 135,
       "answer": "Removes and returns the next element, or throws an exception if empty queue"
     },
