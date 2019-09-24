@@ -158,7 +158,7 @@
     {
       "question": "What are the rules for creating an immutable class?",
       "page": 82,
-      "answer": "1. Use a constructor to set all properties.\n2. Mark all instance variables as private and final.\n3.Don't define setter methods.\n4.Don't allow mutable objects to be accessed.\n5. Prevent methods from being overriden."
+      "answer": "1. Use a constructor to set all properties.\n2. Mark all instance variables as private and final.\n3. Don't define setter methods.\n4. Don't allow mutable objects to be accessed.\n5. Prevent methods from being overriden."
     },
     {
       "question": "How do you convert an array to a `List`?",
@@ -221,7 +221,7 @@
       "answer": "Adds the element at the specified index, and moves the rest of the elements towards the end."
     },
     {
-      "question": "What are the differences between `HashSet` and `TreeSet`?",
+      "question": "What is the difference between `HashSet` and `TreeSet`? What is th big O notation for the addition and finding of elements in each case?",
       "page": 132,
       "answer": "A `TreeSet` saves the elements in order. `HashSet` adds and finds in O(n), while `TreeSet` does these in O(log(n))"
     },
@@ -297,7 +297,7 @@
     {
       "question": "What are the adding and retrieving algorithm efficiencies for `HashMap` compared with `TreeMap`?",
       "page": 138,
-      "answer": "Method\t`HashMap` efficiency\t`TreeMap` efficiency\nAdd\tO(1)\tO(log(n))\nGet\tO(1)\tO(log(n))"
+      "answer": "Method\t`HashMap` efficiency\t`TreeMap` efficiency\nAdd\t\tO(1)\t\t\tO(log(n))\nGet\t\tO(1)\t\t\tO(log(n))"
     },
     {
       "question": "What is the order of the elements when `TreeMap.values()` is called?",
@@ -423,6 +423,166 @@
       "question": "What happens when the `BiFunction` in the `Map.merge` returns `null`?",
       "page": 156,
       "answer": "The key is removed from the map."
+    },
+    {
+      "question": "What is the method signature for the `Supplier` abstract method?",
+      "page": 173,
+      "answer": "`public T get()`"
+    },
+    {
+      "question": "What is the method signature for the `Consumer` abstract method?",
+      "page": 173,
+      "answer": "`public T accept(T t)`"
+    },
+    {
+      "question": "What is the method signature for the `Predicate` abstract method?",
+      "page": 173,
+      "answer": "`public boolean test(T t)`"
+    },
+    {
+      "question": "What is the method signature for the `Function` abstract method?",
+      "page": 173,
+      "answer": "`public R apply(T t)`"
+    },
+    {
+      "question": "What is the method signature for the `UnaryOperator` abstract method?",
+      "page": 173,
+      "answer": "`public T apply(T t)`"
+    },
+    {
+      "question": "What is the difference between a `Function` and a `UnaryOperator`?",
+      "page": 180,
+      "answer": "A `Function` can return a different type to the provided argument. In a `UnaryOperator`, the parameter and return type must be the same."
+    },
+    {
+      "question": "How do you create an `Optional` instance of a specific value?",
+      "page": 182,
+      "answer": "`Optional.of(value)`"
+    },
+    {
+      "question": "How do you create an unpopulated `Optional` instance?",
+      "page": 182,
+      "answer": "`Optional.empty()`"
+    },
+    {
+      "question": "How do you check if an `Optional` is `null` or not?",
+      "page": 183,
+      "answer": "`optional.isEmpty()`"
+    },
+    {
+      "question": "How do you retrieve the value from an `Optional` instance?",
+      "page": 183,
+      "answer": "`optional.get()`"
+    },
+    {
+      "question": "What happens when you call `get()` on an empty `Optional` instance?",
+      "page": 183,
+      "answer": "A `NoSuchElementException` is thrown."
+    },
+    {
+      "question": "What is the easiest way of creating an `Optional` instance, where the instance is empty if the provided value is `null`?",
+      "page": 183,
+      "answer": "`Optional o = Optional.ofNullableValue(value);"
+    },
+    {
+      "question": "How would you specify a piece of code to run if a `optional.isPresent()`?",
+      "page": 184,
+      "answer": "`ifPresent(Consumer c)` - This runs the consumer code if the `Optional` instance is present."
+    },
+    {
+      "question": "How would you get the value from an `Optional` instance, or retrieve a different value if `!optional.isPresent()`?",
+      "page": 184,
+      "answer": "`orElse(T other)` - this gets the value if present, or the other value passed in if not present"
+    },
+    {
+      "question": "How would you get the value from an `Optional` instance, or use a `Supplier` to retrieve a different value if `!optional.isPresent()`?",
+      "page": 184,
+      "answer": "`orElseGet(Supplier s)`"
+    },
+    {
+      "question": "How would you throw an exception if `!optional.isPresent()`?"
+      "page": 184,
+      "answer": "`orElseThrow(Supplier s)`"
+    },
+    {
+      "question":"What are the three parts of a stream pipeline?",
+      "page": 186,
+      "answer": "1. Source - where the stream comes from.\n2. Intermediate operations - transforms the stream\n3. Terminal operation - produces a result. The stream if no longer valid once a terminal operation completes."
+    },
+    {
+      "question": "How do you create an empty stream?",
+      "page": 188,
+      "answer": "`Stream.empty()`"
+    },
+    {
+      "question": "How do would you determine the number of elements in a stream? What is the method signature?",
+      "page": 190,
+      "answer": "`public long count()`. This returns a `long`."
+    },
+    {
+      "question": "How would you get the min/max elements from a stream? What are the method signatures?",
+      "page": 191,
+      "answer": "```Optional<T> min(Comparator<? super T> comparator```\n```Optional<T> max(Comparator<? super T> comparator)```"
+    },
+    {
+      "question": "What do the `Stream.findFirst` and `Stream.findAny` methods do, and what are their method signatures?",
+      "page": 191,
+      "answer": "Both methods return the first element they find, although `findFirst` forces the stream to retrieve the sequentially first element. `findAny` is therefore useful for parallel streams.\n```Optional<T> findFirst()```\n```Optional<T> findAny()```"
+    },
+    {
+      "question": "What is the only terminal stream operation with a `void` return type?",
+      "page": 192,
+      "answer": "`forEach`"
+    },
+    {
+      "question": "Can you use a for each loop on a stream?",
+      "page": 193,
+      "answer": "No"
+    },
+    {
+      "question": "What are the three `Stream.reduce` method signatures, and what do they do?",
+      "page": 193,
+      "answer": "The `reduce` function reduces the stream down to a single element.\n`T reduce(T identity, BinaryOperator<T> accumulator)`\n- `identity` is the initial value, and `accumulator` defines how the elements will be merged.\n`Optional<T> reduce(Binaryoperator<T> accumulator)`\n- Similar to the previous, except the initial value can be omitted. This will return...:\n  - An empty `Optional` when the stream is empty\n  - The element, if the stream only contains one element\n  - The accumulated value, if the stream has multiple elements.\n`<U> U reduce(U identity, BiFunction<U,? super T, U> accumulator, BinaryOperator<U> combiner)`\n- This is useful in parallel streams as it allows the JVM to create intermediate combined elements, and then combine all of those at the end."
+    },
+    {
+      "question": "What is the different between `Stream.reduce` and `Stream.collect`?",
+      "page": 194,
+      "answer": "`reduce` creates new objects at each combining step. `collect` is a mutable reduction, i.e. the same mutable object is used."
+    },
+    {
+      "question": "What are the two different method signatures for the `Stream.collect` method?",
+      "page": 195,
+      "answer": "`<R> R collect(Supplier<R> supplier, BiConsumer<R, ? super T> accumulator, BiConsumer<R, R> combiner)`\n- The `supplier` provides the initial value. The `accumulator` specifies how the elements should be added to the supplied object. The `combiner` specifies how these objects should be combined. This is useful for parallel streams when combining the results from each thread.\n`<R,A> R collect(Collector<? super T, A, R> collector)`\n- Collects with a `Collector`."
+    },
+    {
+      "question": "How would you ensure a `Stream` contains no two objects such that `obj1 == obj2`",
+      "page": 196,
+      "answer": "`stream.distinct()`"
+    },
+    {
+      "question": "How would you skip the first `x` values of a `Stream`?",
+      "page": 197,
+      "answer": "`stream.skip(x)`"
+    },
+    {
+      "question": "How would you ensure that a `Stream` iterates over no more than `x` elements?",
+      "page": 197,
+      "answer": "`stream.limit(x)`"
+    },
+    {
+      "question": "What does the `Stream.flatMap` method do, and how would you use it?",
+      "page": 198,
+      "answer": "Combines the elements contained within each stream element into one stream, e.g. when combining the elements of a stream of `List`s.\nTo use the method, you must supply a `Function` that takes the current type and returns a `Stream`"
+    },
+    {
+      "question": "How do you order the elements of a `Stream`, and what are the method signatures?",
+      "page": 198,
+      "answer": "`Stream<T> sorted()` - uses the `Comparable` interface.\n`Stream.sorted(Comparator<? super T> comparator)` - uses the provided `Comparator`"
+    },
+    {
+      "question": "What does the `Stream.peek` method do?",
+      "page": 199,
+      "answer": "This is very similar to the `Stream.forEach` method, but is an intermediate operation. It allows us to inspect the elements of the stream without changing the stream."
     }
   ]
 }

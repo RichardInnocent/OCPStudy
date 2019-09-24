@@ -51,8 +51,8 @@ class Question:
                 in_code_block = '```' not in processed_text
             else:
                 if line.startswith('```'):
-                    in_code_block = True
                     processed_text += '  ' + line.replace('```', '')
+                    in_code_block = '```' in line[3:]
                 else:
                     processed_text += line
             processed_text += '\n'
