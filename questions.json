@@ -273,7 +273,7 @@
     {
       "question": "What are the four map implementations, and how do they differ from one another?",
       "page": 138,
-      "answer": "`HashMap` - unsorted\n`LinkedHashMap` - in order of insertion\n`TreeMap` - in logical ordering\n`HashTable` - old, synchronised `HashMap`"
+      "answer": "`HashMap` - unsorted\n`LinkedHashMap` - in order of insertion\n`TreeMap` - in logical ordering\n`Hashtable` - old, synchronised `HashMap`"
     },
     {
       "question": "What are the return types of the following `Map` methods?\n```keySet()```\n```values()```",
