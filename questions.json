@@ -136,7 +136,7 @@
       "answer": "Yes"
     },
     {
-      "question": "Why won't this code compile?\n```public interface Truck{default void drive() {}}\npublic interface Car {default void drive() {}}\nclass Pickup implements Car, Truck{}",
+      "question": "Why won't this code compile?\n```public interface Truck{default void drive() {}}\npublic interface Car {default void drive() {}}\nclass Pickup implements Car, Truck{}```",
       "page": 51,
       "answer": "The class implements two interfaces with the same default method. For this to compile successfully, `Pickup` would need to override the `drive` method."
     },
