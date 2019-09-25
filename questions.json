@@ -500,7 +500,7 @@
       "answer": "`orElseGet(Supplier s)`"
     },
     {
-      "question": "How would you throw an exception if `!optional.isPresent()`?"
+      "question": "How would you throw an exception if `!optional.isPresent()`?",
       "page": 184,
       "answer": "`orElseThrow(Supplier s)`"
     },
