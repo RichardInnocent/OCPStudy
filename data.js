@@ -172,7 +172,7 @@ var questions = [
     answer: "`list.toArray();`"
   },
   {
-    question: "What will be the results of the following?:\n```int[] array = new int[]{4,6,1,5,8};\nSystem.out.println(Arrays.binarySearch(array, 4));\nSystem.out.println(Arrays.binarySearch(array, 0));\nSystem.out.println(Arrays.binarySearch(array, 3));",
+    question: "What will be the results of the following?:<br />```int[] array = new int[]{4,6,1,5,8};<br />System.out.println(Arrays.binarySearch(array, 4));<br />System.out.println(Arrays.binarySearch(array, 0));<br />System.out.println(Arrays.binarySearch(array, 3));```",
     page: 106,
     answer: "0<br />-1<br />-2"
   },

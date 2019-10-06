@@ -34,8 +34,8 @@ def purify_text(text):
 def write(text):
     output.write(text)
 
-print(purify_text())
-if __name__ == '___main__':
+
+if __name__ == '__main__':
     write('// Do not edit. Please edit the questions.json file instead\n\n')
     write('var questions = [\n')
     for i in range(0, len(questions)-1):
