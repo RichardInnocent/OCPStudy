@@ -12,7 +12,7 @@ var questions = [
     answer: "`object2` is a class (not an interface) and `object1` does not directly or indirectly extend it"
   },
   {
-    question: "Will this code compile? Why?<br />```<br />public interface Mother {}<br />class Hippo extends HeavyAnimal {}<br />...<br />HeavyAnimal hippo = new Hippo();<br />hippo instanceof Mother;```",
+    question: "Will this code compile? Why?<br />```  \npublic interface Mother {}  \nclass Hippo extends HeavyAnimal {}  \n...  \nHeavyAnimal hippo = new Hippo();  \nhippo instanceof Mother;```",
     page: 8,
     answer: "Yes - unlike with classes, the compiler has no way of determining if `Hippo` implements `Mother`, as `Mother` is an interface"
   },
@@ -84,7 +84,7 @@ var questions = [
   {
     question: "From outside the outer class, `Outer`, how could you create an instance of the inner class, `Inner`?",
     page: 26,
-    answer: "```Outer outer = new Outer();<br />Inner inner = outer.new Inner();```"
+    answer: "```Outer outer = new Outer();  \nInner inner = outer.new Inner();```"
   },
   {
     question: "Can members with the same name be created in both an outer class and an inner class?",
@@ -137,7 +137,7 @@ var questions = [
     answer: "Yes"
   },
   {
-    question: "Why won't this code compile?<br />```public interface Truck{default void drive() {}}<br />public interface Car {default void drive() {}}<br />class Pickup implements Car, Truck{}```",
+    question: "Why won't this code compile?<br />```public interface Truck{default void drive() {}}  \npublic interface Car {default void drive() {}}  \nclass Pickup implements Car, Truck{}```",
     page: 51,
     answer: "The class implements two interfaces with the same default method. For this to compile successfully, `Pickup` would need to override the `drive` method."
   },
@@ -149,7 +149,7 @@ var questions = [
   {
     question: "In the JavaBean definition, how would you define a getter method for a Boolean, `canJump`?",
     page: 70,
-    answer: "```public Boolean getCanJump() { return canJump; }```\n`canJump` is an object, not a boolean, so it must be prefixed with get"
+    answer: "```public Boolean getCanJump() { return canJump; }```<br />`canJump` is an object, not a boolean, so it must be prefixed with get"
   },
   {
     question: "What is object composition?",
@@ -172,7 +172,7 @@ var questions = [
     answer: "`list.toArray();`"
   },
   {
-    question: "What will be the results of the following?:<br />```int[] array = new int[]{4,6,1,5,8};<br />System.out.println(Arrays.binarySearch(array, 4));<br />System.out.println(Arrays.binarySearch(array, 0));<br />System.out.println(Arrays.binarySearch(array, 3));```",
+    question: "What will be the results of the following?:<br />```int[] array = new int[]{4,6,1,5,8};  \nSystem.out.println(Arrays.binarySearch(array, 4));  \nSystem.out.println(Arrays.binarySearch(array, 0));  \nSystem.out.println(Arrays.binarySearch(array, 3));```",
     page: 106,
     answer: "0<br />-1<br />-2"
   },
@@ -182,9 +182,9 @@ var questions = [
     answer: "In order to be compatible with older Java versions, generics are actually just stored as `Object`s and cast at the appropriate time, behind the scenes."
   },
   {
-    question: "What are the three ways to implement this interface, and what are the connotations of each?\n```public interface Shippable<T> { void ship(T t); }```",
+    question: "What are the three ways to implement this interface, and what are the connotations of each?<br />```public interface Shippable<T> { void ship(T t); }```",
     page: 112,
-    answer: "Specify the generic type. In this case, we can only ship `String`s.\n```class Crate implements Shippable<String> { public void ship(String t) {} }```\n\nUse a generic type. In this manner, we can ship any object of type `T`.\n```class Crate<T> implements Shippable<T> { public void ship(T t) {} }```\n\nIgnore generic types. This generates a compiler warning as this will accept any `Object`.\n```class Crate implements Shippable { public void ship(Object o) {} }```"
+    answer: "Specify the generic type. In this case, we can only ship `String`s.<br />```class Crate implements Shippable<String> { public void ship(String t) {} }```<br /><br />Use a generic type. In this manner, we can ship any object of type `T`.<br />```class Crate<T> implements Shippable<T> { public void ship(T t) {} }```<br /><br />Ignore generic types. This generates a compiler warning as this will accept any `Object`.<br />```class Crate implements Shippable { public void ship(Object o) {} }```"
   },
   {
     question: "How can you explicitly state the generic return type when calling a method?",
@@ -194,17 +194,17 @@ var questions = [
   {
     question: "What is the point of unbounded wildcards in generics, and give an example.",
     page: 118,
-    answer: "The unbounded wildcard allows any generic.\n```public static void printList(List<?> list) { list.forEach(System.out::println); }```\nIf this was restricted to `List<Object>, trying to call this method with a `List<String>` would fail to compile."
+    answer: "The unbounded wildcard allows any generic.<br />```public static void printList(List<?> list) { list.forEach(System.out::println); }```<br />If this was restricted to `List<Object>, trying to call this method with a `List<String>` would fail to compile."
   },
   {
-    question: "What will be the result of the following?\n```Integer[] numbers = { new Integer(42) };\nObject[] objects = numbers;\nobjects[0] = \"forty-two\";",
+    question: "What will be the result of the following?<br />```Integer[] numbers = { new Integer(42) };  \nObject[] objects = numbers;  \nobjects[0] = \"forty-two\";",
     page: 118,
     answer: "An `ArrayStoreException` is thrown. Unlike with `Collection`s, the JVM remembers that `objects` ir really of type `Integer`."
   },
   {
     question: "What is an upper-bounded wildcard, and how would you define one?",
     page: 119,
-    answer: "Similar to an unbounded wildcard, but forcing the type to match or extend the upper bound.\n```public static void sum(List<? extends Number> numbers) { ... }\nThis takes any `List` of `Number`s or subclasses of `Number`"
+    answer: "Similar to an unbounded wildcard, but forcing the type to match or extend the upper bound.<br />```public static void sum(List<? extends Number> numbers) { ... }  \nThis takes any `List` of `Number`s or subclasses of `Number`"
   },
   {
     question: "Why can't you add elements to an unbounded or upper-bounded wildcarded list?",
@@ -217,7 +217,7 @@ var questions = [
     answer: "It enforces that the type must be of the same type, or a supertype of the lower bound. It means that objects of the lower bound type are always safe to be added.<br />Example: `List<? super String>`"
   },
   {
-    question: "What does the following `List` method do?\n```void add(int index, E element)```",
+    question: "What does the following `List` method do?<br />```void add(int index, E element)```",
     page: 130,
     answer: "Adds the element at the specified index, and moves the rest of the elements towards the end."
   },
@@ -232,42 +232,42 @@ var questions = [
     answer: "`E lower(E e)`<br />Returns the greatest element that is < `e`, or `null` if none found.<br /><br />`E floor(E e)`<br />Returns the greatest element that is ≤ `e`, or `null` if none found.<br /><br />`E ceiling(E e)`<br />Returns the smallest element that is ≥ `e`, or `null` if none found.<br /><br />`E higher(E e)`<br />Returns the smallest element that is > `e`, or `null` if none found."
   },
   {
-    question: "What does this method do?\n```boolean ArrayDeque.add(E e)```",
+    question: "What does this method do?<br />```boolean ArrayDeque.add(E e)```",
     page: 135,
     answer: "Adds an element to the back of the queue, and returns `true` if successful, or throws an exception"
   },
   {
-    question: "What does the following method do?\n```E ArrayDeque.element()```",
+    question: "What does the following method do?<br />```E ArrayDeque.element()```",
     page: 135,
     answer: "Returns the next element, or throws an exception if empty queue."
   },
   {
-    question: "What does the following method do?\n```boolean ArrayDeque.offer(E e)```",
+    question: "What does the following method do?<br />```boolean ArrayDeque.offer(E e)```",
     page: 135,
     answer: "Adds an element to the back of the queue, and returns `true` if successful or `false` if not."
   },
   {
-    question: "What does the following method do?\n```E ArrayDeque.remove()```",
+    question: "What does the following method do?<br />```E ArrayDeque.remove()```",
     page: 135,
     answer: "Removes and returns the next element, or throws an exception if empty queue"
   },
   {
-    question: "What does the following method do?\n```void ArrayDeque.push(E e)```",
+    question: "What does the following method do?<br />```void ArrayDeque.push(E e)```",
     page: 135,
     answer: "Adds an element to the front of the queue"
   },
   {
-    question: "What does the following method do?\n```E ArrayDeque.poll()```",
+    question: "What does the following method do?<br />```E ArrayDeque.poll()```",
     page: 135,
     answer: "Removes and returns the next element or `null` if empty queue"
   },
   {
-    question: "What does the following method do?\n```E ArrayDeque.peek()```",
+    question: "What does the following method do?<br />```E ArrayDeque.peek()```",
     page: 135,
     answer: "Returns the next element, or `null` if empty queue"
   },
   {
-    question: "What does the following method do?\n```E ArrayDeque.pop()```",
+    question: "What does the following method do?<br />```E ArrayDeque.pop()```",
     page: 135,
     answer: "Removes and returns the next element, or throws exception if empty queue"
   },
@@ -401,7 +401,7 @@ var questions = [
     answer: "`public static <T> void sort(List<T> list, Comparator<? super T> c);`<br />`public static <T extends Comparable<? super T>> void sort(List<T> list);`"
   },
   {
-    question: "Why won't the following snippet compile, and what are the two ways this can be resolved?<br />```class Rabbit { int id; }<br />...<br />Set<Rabbit> rabbits = new TreeSet<>();<br />rabbits.add(new Rabbit());```",
+    question: "Why won't the following snippet compile, and what are the two ways this can be resolved?<br />```class Rabbit { int id; }  \n...  \nSet<Rabbit> rabbits = new TreeSet<>();  \nrabbits.add(new Rabbit());```",
     page: 151,
     answer: "`Rabbit` does not implement `Comparable`, so a `ClassCastException` will be thrown. This can be resolved by either:<br />1. make the `Rabbit` class implement `Comparable`.<br />2. Pass a `Comparator` to the `TreeSet` constructor, e.g. `new TreeSet<>((rabbit1, rabbit2) -> rabbit1.id - rabbit2.id);`"
   },
@@ -483,7 +483,7 @@ var questions = [
   {
     question: "What is the easiest way of creating an `Optional` instance, where the instance is empty if the provided value is `null`?",
     page: 183,
-    answer: "`Optional o = Optional.ofNullableValue(value);"
+    answer: "`Optional o = Optional.ofNullableValue(value);`"
   },
   {
     question: "How would you specify a piece of code to run if a `optional.isPresent()`?",
