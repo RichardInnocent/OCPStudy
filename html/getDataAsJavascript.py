@@ -19,16 +19,20 @@ def write_question(question, end_char=''):
 
 
 def purify_text(text):
+    text = text.replace('"', '\\"')
+    purified_text = ''
+
     in_code_block = False
-    for line in text.splitlines():
+    lines = text.splitlines()
+    for line_index in range(0, len(lines)-1):
         if in_code_block:
-            if '```' in line[2:]:
+            if '```' in lines[line_index][2:]:
                 in_code_block = False
         else:
-            if line.startswith('```'):
+            if lines[line_index].startswith('```') and '```' not in lines[line_index][2:]:
                 in_code_block = True
-
-    return text.replace('\n', '\\n' if in_code_block else '<br />').replace('"', '\\"')
+        purified_text += lines[line_index] + ('  \\n' if in_code_block else '<br />')
+    return purified_text + lines[len(lines)-1]
 
 
 def write(text):
