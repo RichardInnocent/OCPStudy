@@ -522,7 +522,7 @@
     {
       "question": "How would you get the min/max elements from a stream? What are the method signatures?",
       "page": 191,
-      "answer": "```Optional<T> min(Comparator<? super T> comparator```\n```Optional<T> max(Comparator<? super T> comparator)```"
+      "answer": "```Optional<T> min(Comparator<? super T> comparator)```\n```Optional<T> max(Comparator<? super T> comparator)```"
     },
     {
       "question": "What do the `Stream.findFirst` and `Stream.findAny` methods do, and what are their method signatures?",

@@ -19,20 +19,28 @@ def write_question(question, end_char=''):
 
 
 def purify_text(text):
-    text = text.replace('"', '\\"')
-    purified_text = ''
+    purified_text = text.replace('"', '\\"')
+    return parse_code(purified_text)
 
+
+def parse_code(text):
+    formatted_text = ''
     in_code_block = False
-    lines = text.splitlines()
-    for line_index in range(0, len(lines)-1):
-        if in_code_block:
-            if '```' in lines[line_index][2:]:
-                in_code_block = False
+    consecutive_backticks = 0
+    for letter_index in range(0, len(text)):
+        if text[letter_index] == '`':
+            consecutive_backticks += 1
         else:
-            if lines[line_index].startswith('```') and '```' not in lines[line_index][2:]:
-                in_code_block = True
-        purified_text += lines[line_index] + ('  \\n' if in_code_block else '<br />')
-    return purified_text + lines[len(lines)-1]
+            if consecutive_backticks == 1 or consecutive_backticks == 3:
+                in_code_block = not in_code_block
+                formatted_text += '<code>' if in_code_block else '</code>'
+
+            if text[letter_index] == '\n':
+                formatted_text += '</code><br /><code>' if in_code_block else '<br />'
+            else:
+                formatted_text += text[letter_index]
+            consecutive_backticks = 0
+    return formatted_text
 
 
 def write(text):
@@ -42,7 +50,7 @@ def write(text):
 if __name__ == '__main__':
     write('// Do not edit. Please edit the questions.json file instead\n\n')
     write('var questions = [\n')
-    for i in range(0, len(questions)-1):
+    for i in range(0, len(questions) - 1):
         write_question(questions[i], ',')
     write_question(questions[len(questions) - 1])
     write('];')
