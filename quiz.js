@@ -57,11 +57,21 @@ function changeState() {
 
 function updateElements() {
     let elements = getElements();
-    document.getElementById(QUESTION_NO_ID).innerHTML = elements.questionNo;
-    document.getElementById(QUESTION_ID).innerHTML = elements.question
-    document.getElementById(QUIZ_BUTTON_ID).innerHTML = elements.button;
-    document.getElementById(ANSWER_ID).innerHTML = elements.answer
+    updateElement(document.getElementById(QUESTION_NO_ID), elements.questionNo);
+    updateElement(document.getElementById(QUESTION_ID), elements.question);
+    updateElement(document.getElementById(QUIZ_BUTTON_ID), elements.button);
+    updateElement(document.getElementById(ANSWER_ID), elements.answer);
 }
+
+function updateElement(element, content) {
+    if (content) {
+        element.style.display = "block";
+    } else {
+        element.style.display = "none";
+    }
+    element.innerHTML = content;
+}
+
 
 function getElements() {
     if (currentState == State.NOT_STARTED) {
