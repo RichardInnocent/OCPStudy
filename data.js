@@ -553,7 +553,7 @@ var questions = [
   {
     question: "What are the two different method signatures for the `Stream.collect` method?",
     page: 195,
-    answer: "`<R> R collect(Supplier<R> supplier, BiConsumer<R, ? super T> accumulator, BiConsumer<R, R> combiner)`<br />- The `supplier` provides the initial value. The `accumulator` specifies how the elements should be added to the supplied object. The `combiner` specifies how these objects should be combined. This is useful for parallel streams when combining the results from each thread.<br />`<R,A> R collect(Collector<? super T, A, R> collector)`<br />- Collects with a `Collector`."
+    answer: "`<R> R collect(Supplier<R> supplier, BiConsumer<R, ? super T> accumulator, BiConsumer<R, R> combiner)`<br />- The `supplier` provides the initial value. The `accumulator` specifies how the elements should be added to the supplied object. The `combiner` specifies how these objects should be combined. This is useful for parallel streams when combining the results from each thread.<br /><br />`<R,A> R collect(Collector<? super T, A, R> collector)`<br />- Collects with a `Collector`."
   },
   {
     question: "How would you ensure a `Stream` contains no two objects such that `obj1 == obj2`",
