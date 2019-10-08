@@ -9,6 +9,7 @@ html,body {
     width: 800px;
     height: 100%;
     padding: 20px;
+    font-size: 18px;
 }
 
 #questionNo {
@@ -17,6 +18,7 @@ html,body {
     height: 5%;
     padding: 20px;
     text-align: center;
+    font-size: 24px;
 }
 
 #question, #answer {
@@ -42,11 +44,12 @@ html,body {
     padding-right: 20px;
     padding-top: 5px;
     padding-bottom: 5px;
+    font-size: 16px;
 }
 
 .button {
     background: #f76d6d;
-    font-size: 16px;
+    font-size: 20px;
     padding: 10px;
     text-align: center;
     width: 150px;
