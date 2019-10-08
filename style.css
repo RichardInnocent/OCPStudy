@@ -57,3 +57,9 @@ html,body {
     border: #672f2f;
     color: white;
 }
+
+code {
+    font-size: 16px;
+    background: #F5F5F5;
+    padding: 0px 10px;
+}
