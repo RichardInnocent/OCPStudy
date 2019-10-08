@@ -85,20 +85,18 @@ function getElements() {
     if (currentState == State.NOT_STARTED) {
         shuffle(questions);
         return {
-            questionNo: "",
-            question: "",
+            question: "This quiz is designed to test your knowledge and understanding on a variety of topics that will "
+                + " be assessed as part of the Oracle Certified Associate, Java 11 Programmer II exam.",
             button: "Start quiz",
-            answer: "",
-            pageNo: ""
+            answer: "Note that this quiz was originally developed for the command line, so various visual defects may "
+                + " be present."
         };
     } else if (currentState == State.SHOWING_QUESTION) {
         fullQuestion = questions[currentQuestion++];
         return {
             questionNo: "Question " + currentQuestion + " (of " + questions.length + ")",
             question: fullQuestion[QUESTION_ID],
-            button: "Show answer",
-            answer: "",
-            pageNo: ""
+            button: "Show answer"
         };
     } else if (currentState == State.SHOWING_ANSWER) {
         fullQuestion = questions[currentQuestion-1];
@@ -116,11 +114,7 @@ function getElements() {
     } else {
         currentQuestion = 0;
         return {
-            questionNo: "",
-            question: "",
-            button: "Restart quiz",
-            answer: "",
-            pageNo: ""
+            button: "Restart quiz"
         }
     };
 }
