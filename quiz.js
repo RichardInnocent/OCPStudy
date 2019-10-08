@@ -3,7 +3,13 @@ const QUESTION_NO_ID = "questionNo";
 const QUESTION_ID = "question";
 const QUIZ_BUTTON_ID = "quizButton";
 const ANSWER_ID = "answer";
-const PAGE_ID = "page";
+const PAGE_NO_ID = "pageNo";
+
+const QUESTION_NO_ELEMENT = document.getElementById(QUESTION_NO_ID);
+const QUESTION_ELEMENT = document.getElementById(QUESTION_ID);
+const QUIZ_BUTTON_ELEMENT = document.getElementById(QUIZ_BUTTON_ID);
+const ANSWER_ELEMENT = document.getElementById(ANSWER_ID);
+const PAGE_NO_ELEMENT = document.getElementById(PAGE_NO_ID);
 
 let currentQuestion = 0;
 
@@ -58,11 +64,11 @@ function changeState() {
 
 function updateElements() {
     let elements = getElements();
-    updateElement(document.getElementById(QUESTION_NO_ID), elements.questionNo);
-    updateElement(document.getElementById(QUESTION_ID), elements.question);
-    updateElement(document.getElementById(QUIZ_BUTTON_ID), elements.button);
-    updateElement(document.getElementById(ANSWER_ID), elements.answer);
-    updateElement(document.getElementById(PAGE_ID), elements.page ? "Page: " + elements.page : "");
+    updateElement(QUESTION_NO_ELEMENT, elements.questionNo);
+    updateElement(QUESTION_ELEMENT, elements.question);
+    updateElement(QUIZ_BUTTON_ELEMENT, elements.button);
+    updateElement(ANSWER_ELEMENT, elements.answer);
+    updateElement(PAGE_NO_ELEMENT, elements.pageNo);
 }
 
 function updateElement(element, content) {
@@ -83,25 +89,29 @@ function getElements() {
             question: "",
             button: "Start quiz",
             answer: "",
-            page: ""
+            pageNo: ""
         };
     } else if (currentState == State.SHOWING_QUESTION) {
         fullQuestion = questions[currentQuestion++];
         return {
-            questionNo: currentQuestion + " (of " + questions.length + ")",
+            questionNo: "Question " + currentQuestion + " (of " + questions.length + ")",
             question: fullQuestion[QUESTION_ID],
             button: "Show answer",
             answer: "",
-            page: ""
+            pageNo: ""
         };
     } else if (currentState == State.SHOWING_ANSWER) {
         fullQuestion = questions[currentQuestion-1];
+        pageNo = fullQuestion["page"]
+        if (pageNo) {
+            pageNo = "Page: " + pageNo;
+        }
         return {
-            questionNo: currentQuestion + " (of " + questions.length + ")",
+            questionNo: "Question " + currentQuestion + " (of " + questions.length + ")",
             question: fullQuestion[QUESTION_ID],
             button: currentQuestion < questions.length ? "Next question" : "End quiz",
             answer: fullQuestion[ANSWER_ID],
-            page: fullQuestion[PAGE_ID]
+            pageNo: pageNo
         }
     } else {
         currentQuestion = 0;
@@ -110,7 +120,7 @@ function getElements() {
             question: "",
             button: "Restart quiz",
             answer: "",
-            page: ""
+            pageNo: ""
         }
     };
 }
