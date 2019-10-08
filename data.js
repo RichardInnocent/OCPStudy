@@ -182,19 +182,19 @@ var questions = [
     answer: "In order to be compatible with older Java versions, generics are actually just stored as <code>Object</code>s and cast at the appropriate time, behind the scenes."
   },
   {
-    question: "What are the three ways to implement this interface, and what are the connotations of each?<br /><code>public interface Shippable<T> { void ship(T t); }</code>",
+    question: "What are the three ways to implement this interface, and what are the connotations of each?<br /><code>public interface Shippable&lt;T&gt; { void ship(T t); }</code>",
     page: 112,
-    answer: "Specify the generic type. In this case, we can only ship <code>String</code>s.<br /><code>class Crate implements Shippable<String> { public void ship(String t) {} }</code><br /><br />Use a generic type. In this manner, we can ship any object of type <code>T</code>.<br /><code>class Crate<T> implements Shippable<T> { public void ship(T t) {} }</code><br /><br />Ignore generic types. This generates a compiler warning as this will accept any <code>Object</code>.<br /><code>class Crate implements Shippable { public void ship(Object o) {} }</code>"
+    answer: "Specify the generic type. In this case, we can only ship <code>String</code>s.<br /><code>class Crate implements Shippable&lt;String&gt; { public void ship(String t) {} }</code><br /><br />Use a generic type. In this manner, we can ship any object of type <code>T</code>.<br /><code>class Crate&lt;T&gt; implements Shippable&lt;T&gt; { public void ship(T t) {} }</code><br /><br />Ignore generic types. This generates a compiler warning as this will accept any <code>Object</code>.<br /><code>class Crate implements Shippable { public void ship(Object o) {} }</code>"
   },
   {
     question: "How can you explicitly state the generic return type when calling a method?",
     page: 114,
-    answer: "<code>Box.<String>ship(\"package\");</code><br />This is optional."
+    answer: "<code>Box.&lt;String&gt;ship(\"package\");</code><br />This is optional."
   },
   {
     question: "What is the point of unbounded wildcards in generics, and give an example.",
     page: 118,
-    answer: "The unbounded wildcard allows any generic.<br /><code>public static void printList(List<?> list) { list.forEach(System.out::println); }</code><br />If this was restricted to <code>List<Object>, trying to call this method with a </code>List<String><code> would fail to compile.</code>"
+    answer: "The unbounded wildcard allows any generic.<br /><code>public static void printList(List&lt;?&gt; list) { list.forEach(System.out::println); }</code><br />If this was restricted to <code>List&lt;Object&gt;</code>, trying to call this method with a <code>List&lt;String&gt;</code> would fail to compile."
   },
   {
     question: "What will be the result of the following?<br /><code>Integer[] numbers = { new Integer(42) };</code><br /><code>Object[] objects = numbers;</code><br /><code>objects[0] = \"forty-two\";</code>",
@@ -204,7 +204,7 @@ var questions = [
   {
     question: "What is an upper-bounded wildcard, and how would you define one?",
     page: 119,
-    answer: "Similar to an unbounded wildcard, but forcing the type to match or extend the upper bound.<br /><code>public static void sum(List<? extends Number> numbers) { ... }</code><br /><code>This takes any </code>List<code> of </code>Number<code>s or subclasses of </code>Number"
+    answer: "Similar to an unbounded wildcard, but forcing the type to match or extend the upper bound.<br /><code>public static void sum(List&lt;? extends Number&gt; numbers) { ... }</code><br />This takes any <code>List</code> of <code>Number</code>s or subclasses of <code>Number</code>."
   },
   {
     question: "Why can't you add elements to an unbounded or upper-bounded wildcarded list?",
@@ -214,7 +214,7 @@ var questions = [
   {
     question: "What are lower-bounded wildcards, why would you use them, and how do you specify one?",
     page: 122,
-    answer: "It enforces that the type must be of the same type, or a supertype of the lower bound. It means that objects of the lower bound type are always safe to be added.<br />Example: <code>List<? super String></code>"
+    answer: "It enforces that the type must be of the same type, or a supertype of the lower bound. It means that objects of the lower bound type are always safe to be added.<br />Example: <code>List&lt;? super String&gt;</code>"
   },
   {
     question: "What does the following <code>List</code> method do?<br /><code>void add(int index, E element)</code>",
@@ -229,7 +229,7 @@ var questions = [
   {
     question: "What are the four main methods of <code>NavigableSet</code>, and what do they do?",
     page: 134,
-    answer: "<code>E lower(E e)</code><br />Returns the greatest element that is < <code>e</code>, or <code>null</code> if none found.<br /><br /><code>E floor(E e)</code><br />Returns the greatest element that is ≤ <code>e</code>, or <code>null</code> if none found.<br /><br /><code>E ceiling(E e)</code><br />Returns the smallest element that is ≥ <code>e</code>, or <code>null</code> if none found.<br /><br /><code>E higher(E e)</code><br />Returns the smallest element that is > <code>e</code>, or <code>null</code> if none found."
+    answer: "<code>E lower(E e)</code><br />Returns the greatest element that is &lt; <code>e</code>, or <code>null</code> if none found.<br /><br /><code>E floor(E e)</code><br />Returns the greatest element that is &lt;= <code>e</code>, or <code>null</code> if none found.<br /><br /><code>E ceiling(E e)</code><br />Returns the smallest element that is &gt;= <code>e</code>, or <code>null</code> if none found.<br /><br /><code>E higher(E e)</code><br />Returns the smallest element that is &gt; <code>e</code>, or <code>null</code> if none found."
   },
   {
     question: "What does this method do?<br /><code>boolean ArrayDeque.add(E e)</code>",
@@ -279,7 +279,7 @@ var questions = [
   {
     question: "What are the return types of the following <code>Map</code> methods?<br /><code>keySet()</code><br /><code>values()</code>",
     page: 139,
-    answer: "<code>keySet()</code>: <code>Set<K></code><br /><code>values()</code>: <code>Collection<V></code>"
+    answer: "<code>keySet()</code>: <code>Set&lt;K&gt;</code><br /><code>values()</code>: <code>Collection&lt;V&gt;</code>"
   },
   {
     question: "Which data structures don't allow <code>null</code>s?",
@@ -368,7 +368,7 @@ var questions = [
   {
     question: "What are the rules when implementing the <code>Comparable</code> interface?",
     page: 144,
-    answer: "0 is returned when this object is equal to the provided argument<br />A number < 0 is returned when this object is smaller than the provided argument<br />A number > 0 is returned when this object is larger than the provided argument"
+    answer: "0 is returned when this object is equal to the provided argument<br />A number &lt; 0 is returned when this object is smaller than the provided argument<br />A number &gt; 0 is returned when this object is larger than the provided argument"
   },
   {
     question: "When is <code>compareTo</code> consistent with <code>equals</code>?",
@@ -398,22 +398,22 @@ var questions = [
   {
     question: "What are the two primary <code>Collections.sort</code> method signatures?",
     page: 150,
-    answer: "<code>public static <T> void sort(List<T> list, Comparator<? super T> c);</code><br /><code>public static <T extends Comparable<? super T>> void sort(List<T> list);</code>"
+    answer: "<code>public static &lt;T&gt; void sort(List&lt;T&gt; list, Comparator&lt;? super T&gt; c);</code><br /><code>public static &lt;T extends Comparable&lt;? super T&gt;&gt; void sort(List&lt;T&gt; list);</code>"
   },
   {
-    question: "Why won't the following snippet compile, and what are the two ways this can be resolved?<br /><code>class Rabbit { int id; }</code><br /><code>...</code><br /><code>Set<Rabbit> rabbits = new TreeSet<>();</code><br /><code>rabbits.add(new Rabbit());</code>",
+    question: "Why won't the following snippet compile, and what are the two ways this can be resolved?<br /><code>class Rabbit { int id; }</code><br /><code>...</code><br /><code>Set&lt;Rabbit&gt; rabbits = new TreeSet&lt;&gt;();</code><br /><code>rabbits.add(new Rabbit());</code>",
     page: 151,
-    answer: "<code>Rabbit</code> does not implement <code>Comparable</code>, so a <code>ClassCastException</code> will be thrown. This can be resolved by either:<br />1. make the <code>Rabbit</code> class implement <code>Comparable</code>.<br />2. Pass a <code>Comparator</code> to the <code>TreeSet</code> constructor, e.g. <code>new TreeSet<>((rabbit1, rabbit2) -> rabbit1.id - rabbit2.id);</code>"
+    answer: "<code>Rabbit</code> does not implement <code>Comparable</code>, so a <code>ClassCastException</code> will be thrown. This can be resolved by either:<br />1. make the <code>Rabbit</code> class implement <code>Comparable</code>.<br />2. Pass a <code>Comparator</code> to the <code>TreeSet</code> constructor, e.g. <code>new TreeSet&lt;&gt;((rabbit1, rabbit2) -&gt; rabbit1.id - rabbit2.id);</code>"
   },
   {
     question: "What is the method signature of the <code>List.replaceAll</code> method, and what does it do?",
     page: 155,
-    answer: "<code>void replaceAll(UnaryOperator<E> o);</code><br />It replaces all elements in the list with the results from the <code>UnaryOperator</code>."
+    answer: "<code>void replaceAll(UnaryOperator&lt;E&gt; o);</code><br />It replaces all elements in the list with the results from the <code>UnaryOperator</code>."
   },
   {
     question: "What is the <code>Map.merge</code>'s method signature, and what does it do?",
     page: 156,
-    answer: "<code>V merge(K var1, V var2, BiFunction<? super V, ? super V, ? extends V> var3)</code>;<br />It gets the value for the provided key, and the potential, then passes these both to the <code>BiFunction</code> to see what the value should actually be set to."
+    answer: "<code>V merge(K var1, V var2, BiFunction&lt;? super V, ? super V, ? extends V&gt; var3)</code>;<br />It gets the value for the provided key, and the potential, then passes these both to the <code>BiFunction</code> to see what the value should actually be set to."
   },
   {
     question: "What happens when <code>Map.merge</code> is applied to key such that <code>map.get(key) == null</code>?",
@@ -523,12 +523,12 @@ var questions = [
   {
     question: "How would you get the min/max elements from a stream? What are the method signatures?",
     page: 191,
-    answer: "<code>Optional<T> min(Comparator<? super T> comparator)</code><br /><code>Optional<T> max(Comparator<? super T> comparator)</code>"
+    answer: "<code>Optional&lt;T&gt; min(Comparator&lt;? super T&gt; comparator)</code><br /><code>Optional&lt;T&gt; max(Comparator&lt;? super T&gt; comparator)</code>"
   },
   {
     question: "What do the <code>Stream.findFirst</code> and <code>Stream.findAny</code> methods do, and what are their method signatures?",
     page: 191,
-    answer: "Both methods return the first element they find, although <code>findFirst</code> forces the stream to retrieve the sequentially first element. <code>findAny</code> is therefore useful for parallel streams.<br /><code>Optional<T> findFirst()</code><br /><code>Optional<T> findAny()</code>"
+    answer: "Both methods return the first element they find, although <code>findFirst</code> forces the stream to retrieve the sequentially first element. <code>findAny</code> is therefore useful for parallel streams.<br /><code>Optional&lt;T&gt; findFirst()</code><br /><code>Optional&lt;T&gt; findAny()</code>"
   },
   {
     question: "What is the only terminal stream operation with a <code>void</code> return type?",
@@ -543,7 +543,7 @@ var questions = [
   {
     question: "What are the three <code>Stream.reduce</code> method signatures, and what do they do?",
     page: 193,
-    answer: "The <code>reduce</code> function reduces the stream down to a single element.<br /><code>T reduce(T identity, BinaryOperator<T> accumulator)</code><br />- <code>identity</code> is the initial value, and <code>accumulator</code> defines how the elements will be merged.<br /><code>Optional<T> reduce(Binaryoperator<T> accumulator)</code><br />- Similar to the previous, except the initial value can be omitted. This will return...:<br />  - An empty <code>Optional</code> when the stream is empty<br />  - The element, if the stream only contains one element<br />  - The accumulated value, if the stream has multiple elements.<br /><code><U> U reduce(U identity, BiFunction<U,? super T, U> accumulator, BinaryOperator<U> combiner)</code><br />- This is useful in parallel streams as it allows the JVM to create intermediate combined elements, and then combine all of those at the end."
+    answer: "The <code>reduce</code> function reduces the stream down to a single element.<br /><code>T reduce(T identity, BinaryOperator&lt;T&gt; accumulator)</code><br />- <code>identity</code> is the initial value, and <code>accumulator</code> defines how the elements will be merged.<br /><code>Optional&lt;T&gt; reduce(Binaryoperator&lt;T&gt; accumulator)</code><br />- Similar to the previous, except the initial value can be omitted. This will return...:<br />  - An empty <code>Optional</code> when the stream is empty<br />  - The element, if the stream only contains one element<br />  - The accumulated value, if the stream has multiple elements.<br /><code>&lt;U&gt; U reduce(U identity, BiFunction&lt;U,? super T, U&gt; accumulator, BinaryOperator&lt;U&gt; combiner)</code><br />- This is useful in parallel streams as it allows the JVM to create intermediate combined elements, and then combine all of those at the end."
   },
   {
     question: "What is the different between <code>Stream.reduce</code> and <code>Stream.collect</code>?",
@@ -553,7 +553,7 @@ var questions = [
   {
     question: "What are the two different method signatures for the <code>Stream.collect</code> method?",
     page: 195,
-    answer: "<code><R> R collect(Supplier<R> supplier, BiConsumer<R, ? super T> accumulator, BiConsumer<R, R> combiner)</code><br />- The <code>supplier</code> provides the initial value. The <code>accumulator</code> specifies how the elements should be added to the supplied object. The <code>combiner</code> specifies how these objects should be combined. This is useful for parallel streams when combining the results from each thread.<br /><br /><code><R,A> R collect(Collector<? super T, A, R> collector)</code><br />- Collects with a <code>Collector</code>."
+    answer: "<code>&lt;R&gt; R collect(Supplier&lt;R&gt; supplier, BiConsumer&lt;R, ? super T&gt; accumulator, BiConsumer&lt;R, R&gt; combiner)</code><br />- The <code>supplier</code> provides the initial value. The <code>accumulator</code> specifies how the elements should be added to the supplied object. The <code>combiner</code> specifies how these objects should be combined. This is useful for parallel streams when combining the results from each thread.<br /><br /><code>&lt;R,A&gt; R collect(Collector&lt;? super T, A, R&gt; collector)</code><br />- Collects with a <code>Collector</code>."
   },
   {
     question: "How would you ensure a <code>Stream</code> contains no two objects such that <code>obj1 == obj2</code>",
@@ -578,7 +578,7 @@ var questions = [
   {
     question: "How do you order the elements of a <code>Stream</code>, and what are the method signatures?",
     page: 198,
-    answer: "<code>Stream<T> sorted()</code> - uses the <code>Comparable</code> interface.<br /><code>Stream.sorted(Comparator<? super T> comparator)</code> - uses the provided <code>Comparator</code>"
+    answer: "<code>Stream&lt;T&gt; sorted()</code> - uses the <code>Comparable</code> interface.<br /><code>Stream.sorted(Comparator&lt;? super T&gt; comparator)</code> - uses the provided <code>Comparator</code>"
   },
   {
     question: "What does the <code>Stream.peek</code> method do?",

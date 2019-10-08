@@ -19,7 +19,7 @@ def write_question(question, end_char=''):
 
 
 def purify_text(text):
-    purified_text = text.replace('"', '\\"')
+    purified_text = text.replace('"', '\\"').replace('<', '&lt;').replace('>', '&gt;')
     return parse_code(purified_text)
 
 

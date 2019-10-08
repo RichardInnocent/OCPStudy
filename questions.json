@@ -193,7 +193,7 @@
     {
       "question": "What is the point of unbounded wildcards in generics, and give an example.",
       "page": 118,
-      "answer": "The unbounded wildcard allows any generic.\n```public static void printList(List<?> list) { list.forEach(System.out::println); }```\nIf this was restricted to `List<Object>, trying to call this method with a `List<String>` would fail to compile."
+      "answer": "The unbounded wildcard allows any generic.\n```public static void printList(List<?> list) { list.forEach(System.out::println); }```\nIf this was restricted to `List<Object>`, trying to call this method with a `List<String>` would fail to compile."
     },
     {
       "question": "What will be the result of the following?\n```Integer[] numbers = { new Integer(42) };\nObject[] objects = numbers;\nobjects[0] = \"forty-two\";",
@@ -203,7 +203,7 @@
     {
       "question": "What is an upper-bounded wildcard, and how would you define one?",
       "page": 119,
-      "answer": "Similar to an unbounded wildcard, but forcing the type to match or extend the upper bound.\n```public static void sum(List<? extends Number> numbers) { ... }\nThis takes any `List` of `Number`s or subclasses of `Number`"
+      "answer": "Similar to an unbounded wildcard, but forcing the type to match or extend the upper bound.\n```public static void sum(List<? extends Number> numbers) { ... }```\nThis takes any `List` of `Number`s or subclasses of `Number`."
     },
     {
       "question": "Why can't you add elements to an unbounded or upper-bounded wildcarded list?",
@@ -228,7 +228,7 @@
     {
       "question": "What are the four main methods of `NavigableSet`, and what do they do?",
       "page": 134,
-      "answer": "`E lower(E e)`\nReturns the greatest element that is < `e`, or `null` if none found.\n\n`E floor(E e)`\nReturns the greatest element that is ≤ `e`, or `null` if none found.\n\n`E ceiling(E e)`\nReturns the smallest element that is ≥ `e`, or `null` if none found.\n\n`E higher(E e)`\nReturns the smallest element that is > `e`, or `null` if none found."
+      "answer": "`E lower(E e)`\nReturns the greatest element that is < `e`, or `null` if none found.\n\n`E floor(E e)`\nReturns the greatest element that is <= `e`, or `null` if none found.\n\n`E ceiling(E e)`\nReturns the smallest element that is >= `e`, or `null` if none found.\n\n`E higher(E e)`\nReturns the smallest element that is > `e`, or `null` if none found."
     },
     {
       "question": "What does this method do?\n```boolean ArrayDeque.add(E e)```",
