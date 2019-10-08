@@ -198,7 +198,7 @@
     {
       "question": "What will be the result of the following?\n```Integer[] numbers = { new Integer(42) };\nObject[] objects = numbers;\nobjects[0] = \"forty-two\";",
       "page": 118,
-      "answer": "An `ArrayStoreException` is thrown. Unlike with `Collection`s, the JVM remembers that `objects` ir really of type `Integer`."
+      "answer": "An `ArrayStoreException` is thrown. Unlike with `Collection`s, the JVM remembers that `objects` is really of type `Integer`."
     },
     {
       "question": "What is an upper-bounded wildcard, and how would you define one?",
