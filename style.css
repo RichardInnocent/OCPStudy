@@ -43,3 +43,14 @@ html,body {
     padding-top: 5px;
     padding-bottom: 5px;
 }
+
+.button {
+    background: #f76d6d;
+    font-size: 16px;
+    padding: 10px;
+    text-align: center;
+    width: 150px;
+    height: 45px;
+    border: #672f2f;
+    color: white;
+}
