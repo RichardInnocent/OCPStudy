@@ -52,8 +52,9 @@ html,body {
     text-align: center;
     width: 150px;
     height: 45px;
-    border: #672f2f;
+    border: none;
     color: white;
+    outline: none;
 }
 
 code {
