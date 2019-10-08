@@ -40,7 +40,8 @@ def parse_code(text):
             else:
                 formatted_text += text[letter_index]
             consecutive_backticks = 0
-    return formatted_text
+
+    return formatted_text + "</code>" if in_code_block else formatted_text
 
 
 def write(text):

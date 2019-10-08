@@ -33,7 +33,7 @@
     {
       "question": "How do you get an enum's numeric constant?",
       "page": 22,
-      "answer": "enumValue.ordinal()"
+      "answer": "`enumValue.ordinal()`"
     },
     {
       "question": "Can you extend an enum?",
@@ -377,7 +377,7 @@
     {
       "question": "Which package is the `Comparable` interface in?",
       "page": 148,
-      "answer": "java.lang"
+      "answer": "`java.lang`"
     },
     {
       "question": "What is the method signature of the `Comparable` interface method?",
@@ -387,7 +387,7 @@
     {
       "question": "Which package is the `Comparator` interface in?",
       "page": 148,
-      "answer": "java.util"
+      "answer": "`java.util`"
     },
     {
       "question": "What is the method signature of the `Comparator` interface method?",

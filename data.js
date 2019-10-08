@@ -4,7 +4,7 @@ var questions = [
   {
     question: "When is <code>object instanceof Object</code> false?",
     page: 8,
-    answer: "<code>object == null"
+    answer: "<code>object == null</code>"
   },
   {
     question: "When will <code>object1 instanceof object2</code> not compile?",
@@ -12,7 +12,7 @@ var questions = [
     answer: "<code>object2</code> is a class (not an interface) and <code>object1</code> does not directly or indirectly extend it"
   },
   {
-    question: "Will this code compile? Why?<br /><code></code><br /><code>public interface Mother {}</code><br /><code>class Hippo extends HeavyAnimal {}</code><br /><code>...</code><br /><code>HeavyAnimal hippo = new Hippo();</code><br /><code>hippo instanceof Mother;",
+    question: "Will this code compile? Why?<br /><code></code><br /><code>public interface Mother {}</code><br /><code>class Hippo extends HeavyAnimal {}</code><br /><code>...</code><br /><code>HeavyAnimal hippo = new Hippo();</code><br /><code>hippo instanceof Mother;</code>",
     page: 8,
     answer: "Yes - unlike with classes, the compiler has no way of determining if <code>Hippo</code> implements <code>Mother</code>, as <code>Mother</code> is an interface"
   },
@@ -34,7 +34,7 @@ var questions = [
   {
     question: "How do you get an enum's numeric constant?",
     page: 22,
-    answer: "enumValue.ordinal()"
+    answer: "<code>enumValue.ordinal()</code>"
   },
   {
     question: "Can you extend an enum?",
@@ -84,7 +84,7 @@ var questions = [
   {
     question: "From outside the outer class, <code>Outer</code>, how could you create an instance of the inner class, <code>Inner</code>?",
     page: 26,
-    answer: "<code>Outer outer = new Outer();</code><br /><code>Inner inner = outer.new Inner();"
+    answer: "<code>Outer outer = new Outer();</code><br /><code>Inner inner = outer.new Inner();</code>"
   },
   {
     question: "Can members with the same name be created in both an outer class and an inner class?",
@@ -94,7 +94,7 @@ var questions = [
   {
     question: "How would you retrieve the values for the variable, <code>a</code>, from the outer class, <code>Outer</code>, if the inner class, <code>Inner</code>, also has a member with the same name from <code>Inner</code>?",
     page: 26,
-    answer: "<code>Outer.this.a"
+    answer: "<code>Outer.this.a</code>"
   },
   {
     question: "Can an interface be private?",
@@ -124,7 +124,7 @@ var questions = [
   {
     question: "How do you import a static nested class?",
     page: 32,
-    answer: "Either: <code>import Outer.Inner</code> or <code>import static Outer.Inner"
+    answer: "Either: <code>import Outer.Inner</code> or <code>import static Outer.Inner</code>"
   },
   {
     question: "Can an interface have variables?",
@@ -137,14 +137,14 @@ var questions = [
     answer: "Yes"
   },
   {
-    question: "Why won't this code compile?<br /><code>public interface Truck{default void drive() {}}</code><br /><code>public interface Car {default void drive() {}}</code><br /><code>class Pickup implements Car, Truck{}",
+    question: "Why won't this code compile?<br /><code>public interface Truck{default void drive() {}}</code><br /><code>public interface Car {default void drive() {}}</code><br /><code>class Pickup implements Car, Truck{}</code>",
     page: 51,
     answer: "The class implements two interfaces with the same default method. For this to compile successfully, <code>Pickup</code> would need to override the <code>drive</code> method."
   },
   {
     question: "In the JavaBean definition, how would you define a getter method for a boolean, <code>canJump</code>?",
     page: 70,
-    answer: "Either<br /><code>public boolean isCanJump() { return canJump; }</code><br />or<br /><code>public boolean getCanJump() { return canJump; }"
+    answer: "Either<br /><code>public boolean isCanJump() { return canJump; }</code><br />or<br /><code>public boolean getCanJump() { return canJump; }</code>"
   },
   {
     question: "In the JavaBean definition, how would you define a getter method for a Boolean, <code>canJump</code>?",
@@ -169,10 +169,10 @@ var questions = [
   {
     question: "How do you convert a <code>List</code> to an array?",
     page: 105,
-    answer: "<code>list.toArray();"
+    answer: "<code>list.toArray();</code>"
   },
   {
-    question: "What will be the results of the following?:<br /><code>int[] array = new int[]{4,6,1,5,8};</code><br /><code>System.out.println(Arrays.binarySearch(array, 4));</code><br /><code>System.out.println(Arrays.binarySearch(array, 0));</code><br /><code>System.out.println(Arrays.binarySearch(array, 3));",
+    question: "What will be the results of the following?:<br /><code>int[] array = new int[]{4,6,1,5,8};</code><br /><code>System.out.println(Arrays.binarySearch(array, 4));</code><br /><code>System.out.println(Arrays.binarySearch(array, 0));</code><br /><code>System.out.println(Arrays.binarySearch(array, 3));</code>",
     page: 106,
     answer: "0<br />-1<br />-2"
   },
@@ -182,9 +182,9 @@ var questions = [
     answer: "In order to be compatible with older Java versions, generics are actually just stored as <code>Object</code>s and cast at the appropriate time, behind the scenes."
   },
   {
-    question: "What are the three ways to implement this interface, and what are the connotations of each?<br /><code>public interface Shippable<T> { void ship(T t); }",
+    question: "What are the three ways to implement this interface, and what are the connotations of each?<br /><code>public interface Shippable<T> { void ship(T t); }</code>",
     page: 112,
-    answer: "Specify the generic type. In this case, we can only ship <code>String</code>s.<br /><code>class Crate implements Shippable<String> { public void ship(String t) {} }</code><br /><br />Use a generic type. In this manner, we can ship any object of type <code>T</code>.<br /><code>class Crate<T> implements Shippable<T> { public void ship(T t) {} }</code><br /><br />Ignore generic types. This generates a compiler warning as this will accept any <code>Object</code>.<br /><code>class Crate implements Shippable { public void ship(Object o) {} }"
+    answer: "Specify the generic type. In this case, we can only ship <code>String</code>s.<br /><code>class Crate implements Shippable<String> { public void ship(String t) {} }</code><br /><br />Use a generic type. In this manner, we can ship any object of type <code>T</code>.<br /><code>class Crate<T> implements Shippable<T> { public void ship(T t) {} }</code><br /><br />Ignore generic types. This generates a compiler warning as this will accept any <code>Object</code>.<br /><code>class Crate implements Shippable { public void ship(Object o) {} }</code>"
   },
   {
     question: "How can you explicitly state the generic return type when calling a method?",
@@ -194,12 +194,12 @@ var questions = [
   {
     question: "What is the point of unbounded wildcards in generics, and give an example.",
     page: 118,
-    answer: "The unbounded wildcard allows any generic.<br /><code>public static void printList(List<?> list) { list.forEach(System.out::println); }</code><br />If this was restricted to <code>List<Object>, trying to call this method with a </code>List<String><code> would fail to compile."
+    answer: "The unbounded wildcard allows any generic.<br /><code>public static void printList(List<?> list) { list.forEach(System.out::println); }</code><br />If this was restricted to <code>List<Object>, trying to call this method with a </code>List<String><code> would fail to compile.</code>"
   },
   {
-    question: "What will be the result of the following?<br /><code>Integer[] numbers = { new Integer(42) };</code><br /><code>Object[] objects = numbers;</code><br /><code>objects[0] = \"forty-two\";",
+    question: "What will be the result of the following?<br /><code>Integer[] numbers = { new Integer(42) };</code><br /><code>Object[] objects = numbers;</code><br /><code>objects[0] = \"forty-two\";</code>",
     page: 118,
-    answer: "An <code>ArrayStoreException</code> is thrown. Unlike with <code>Collection</code>s, the JVM remembers that <code>objects</code> ir really of type <code>Integer</code>."
+    answer: "An <code>ArrayStoreException</code> is thrown. Unlike with <code>Collection</code>s, the JVM remembers that <code>objects</code> is really of type <code>Integer</code>."
   },
   {
     question: "What is an upper-bounded wildcard, and how would you define one?",
@@ -214,10 +214,10 @@ var questions = [
   {
     question: "What are lower-bounded wildcards, why would you use them, and how do you specify one?",
     page: 122,
-    answer: "It enforces that the type must be of the same type, or a supertype of the lower bound. It means that objects of the lower bound type are always safe to be added.<br />Example: <code>List<? super String>"
+    answer: "It enforces that the type must be of the same type, or a supertype of the lower bound. It means that objects of the lower bound type are always safe to be added.<br />Example: <code>List<? super String></code>"
   },
   {
-    question: "What does the following <code>List</code> method do?<br /><code>void add(int index, E element)",
+    question: "What does the following <code>List</code> method do?<br /><code>void add(int index, E element)</code>",
     page: 130,
     answer: "Adds the element at the specified index, and moves the rest of the elements towards the end."
   },
@@ -232,59 +232,59 @@ var questions = [
     answer: "<code>E lower(E e)</code><br />Returns the greatest element that is < <code>e</code>, or <code>null</code> if none found.<br /><br /><code>E floor(E e)</code><br />Returns the greatest element that is ≤ <code>e</code>, or <code>null</code> if none found.<br /><br /><code>E ceiling(E e)</code><br />Returns the smallest element that is ≥ <code>e</code>, or <code>null</code> if none found.<br /><br /><code>E higher(E e)</code><br />Returns the smallest element that is > <code>e</code>, or <code>null</code> if none found."
   },
   {
-    question: "What does this method do?<br /><code>boolean ArrayDeque.add(E e)",
+    question: "What does this method do?<br /><code>boolean ArrayDeque.add(E e)</code>",
     page: 135,
     answer: "Adds an element to the back of the queue, and returns <code>true</code> if successful, or throws an exception"
   },
   {
-    question: "What does the following method do?<br /><code>E ArrayDeque.element()",
+    question: "What does the following method do?<br /><code>E ArrayDeque.element()</code>",
     page: 135,
     answer: "Returns the next element, or throws an exception if empty queue."
   },
   {
-    question: "What does the following method do?<br /><code>boolean ArrayDeque.offer(E e)",
+    question: "What does the following method do?<br /><code>boolean ArrayDeque.offer(E e)</code>",
     page: 135,
     answer: "Adds an element to the back of the queue, and returns <code>true</code> if successful or <code>false</code> if not."
   },
   {
-    question: "What does the following method do?<br /><code>E ArrayDeque.remove()",
+    question: "What does the following method do?<br /><code>E ArrayDeque.remove()</code>",
     page: 135,
     answer: "Removes and returns the next element, or throws an exception if empty queue"
   },
   {
-    question: "What does the following method do?<br /><code>void ArrayDeque.push(E e)",
+    question: "What does the following method do?<br /><code>void ArrayDeque.push(E e)</code>",
     page: 135,
     answer: "Adds an element to the front of the queue"
   },
   {
-    question: "What does the following method do?<br /><code>E ArrayDeque.poll()",
+    question: "What does the following method do?<br /><code>E ArrayDeque.poll()</code>",
     page: 135,
     answer: "Removes and returns the next element or <code>null</code> if empty queue"
   },
   {
-    question: "What does the following method do?<br /><code>E ArrayDeque.peek()",
+    question: "What does the following method do?<br /><code>E ArrayDeque.peek()</code>",
     page: 135,
     answer: "Returns the next element, or <code>null</code> if empty queue"
   },
   {
-    question: "What does the following method do?<br /><code>E ArrayDeque.pop()",
+    question: "What does the following method do?<br /><code>E ArrayDeque.pop()</code>",
     page: 135,
     answer: "Removes and returns the next element, or throws exception if empty queue"
   },
   {
     question: "What are the four map implementations, and how do they differ from one another?",
     page: 138,
-    answer: "<code>HashMap</code> - unsorted<br /><code>LinkedHashMap</code> - in order of insertion<br /><code>TreeMap</code> - in logical ordering<br /><code>Hashtable</code> - old, synchronised <code>HashMap"
+    answer: "<code>HashMap</code> - unsorted<br /><code>LinkedHashMap</code> - in order of insertion<br /><code>TreeMap</code> - in logical ordering<br /><code>Hashtable</code> - old, synchronised <code>HashMap</code>"
   },
   {
-    question: "What are the return types of the following <code>Map</code> methods?<br /><code>keySet()</code><br /><code>values()",
+    question: "What are the return types of the following <code>Map</code> methods?<br /><code>keySet()</code><br /><code>values()</code>",
     page: 139,
-    answer: "<code>keySet()</code>: <code>Set<K></code><br /><code>values()</code>: <code>Collection<V>"
+    answer: "<code>keySet()</code>: <code>Set<K></code><br /><code>values()</code>: <code>Collection<V></code>"
   },
   {
     question: "Which data structures don't allow <code>null</code>s?",
     page: 141,
-    answer: "<code>TreeMap</code> (no <code>null</code> keys)<br /><code>Hashtable</code> (no <code>null</code> keys or values)<br /><code>TreeSet</code><br /><code>ArrayDeque"
+    answer: "<code>TreeMap</code> (no <code>null</code> keys)<br /><code>Hashtable</code> (no <code>null</code> keys or values)<br /><code>TreeSet</code><br /><code>ArrayDeque</code>"
   },
   {
     question: "What is an <code>ArrayDeque</code>?",
@@ -308,52 +308,52 @@ var questions = [
   {
     question: "Which Java Collections Framework interface/s does an <code>ArrayList</code> implement?",
     page: 141,
-    answer: "<code>List"
+    answer: "<code>List</code>"
   },
   {
     question: "Which Java Collections Framework interface/s does an <code>ArrayDeque</code> implement?",
     page: 141,
-    answer: "<code>Queue"
+    answer: "<code>Queue</code>"
   },
   {
     question: "Which Java Collections Framework interface/s does a <code>HashMap</code> implement?",
     page: 141,
-    answer: "<code>Map"
+    answer: "<code>Map</code>"
   },
   {
     question: "Which Java Collections Framework interface/s does a <code>HashSet</code> implement?",
     page: 141,
-    answer: "<code>Set"
+    answer: "<code>Set</code>"
   },
   {
     question: "Which Java Collections Framework interface/s does a <code>Hashtable</code> implement?",
     page: 141,
-    answer: "<code>Map"
+    answer: "<code>Map</code>"
   },
   {
     question: "Which Java Collections Framework interface/s does a <code>LinkedList</code> implement?",
     page: 141,
-    answer: "<code>List</code>, <code>Queue"
+    answer: "<code>List</code>, <code>Queue</code>"
   },
   {
     question: "Which Java Collections Framework interface/s does a <code>Stack</code> implement?",
     page: 141,
-    answer: "<code>List"
+    answer: "<code>List</code>"
   },
   {
     question: "Which Java Collections Framework interface/s does a <code>TreeMap</code> implement?",
     page: 141,
-    answer: "<code>Map"
+    answer: "<code>Map</code>"
   },
   {
     question: "Which Java Collections Framework interface/s does a <code>TreeSet</code> implement?",
     page: 141,
-    answer: "<code>Set"
+    answer: "<code>Set</code>"
   },
   {
     question: "Which Java Collections Framework interface/s does a <code>Vector</code> implement?",
     page: 141,
-    answer: "<code>List"
+    answer: "<code>List</code>"
   },
   {
     question: "Does <code>ArrayDeque</code> support <code>null</code>s? Why?",
@@ -373,37 +373,37 @@ var questions = [
   {
     question: "When is <code>compareTo</code> consistent with <code>equals</code>?",
     page: 146,
-    answer: "When <code>compareTo(obj)</code> is <code>0</code> when (and only when) <code>equals(obj)</code> is <code>true"
+    answer: "When <code>compareTo(obj)</code> is <code>0</code> when (and only when) <code>equals(obj)</code> is <code>true</code>"
   },
   {
     question: "Which package is the <code>Comparable</code> interface in?",
     page: 148,
-    answer: "java.lang"
+    answer: "<code>java.lang</code>"
   },
   {
     question: "What is the method signature of the <code>Comparable</code> interface method?",
     page: 148,
-    answer: "<code>public int compareTo(T t);"
+    answer: "<code>public int compareTo(T t);</code>"
   },
   {
     question: "Which package is the <code>Comparator</code> interface in?",
     page: 148,
-    answer: "java.util"
+    answer: "<code>java.util</code>"
   },
   {
     question: "What is the method signature of the <code>Comparator</code> interface method?",
     page: 148,
-    answer: "<code>public int compare(T obj1, T obj2);"
+    answer: "<code>public int compare(T obj1, T obj2);</code>"
   },
   {
     question: "What are the two primary <code>Collections.sort</code> method signatures?",
     page: 150,
-    answer: "<code>public static <T> void sort(List<T> list, Comparator<? super T> c);</code><br /><code>public static <T extends Comparable<? super T>> void sort(List<T> list);"
+    answer: "<code>public static <T> void sort(List<T> list, Comparator<? super T> c);</code><br /><code>public static <T extends Comparable<? super T>> void sort(List<T> list);</code>"
   },
   {
-    question: "Why won't the following snippet compile, and what are the two ways this can be resolved?<br /><code>class Rabbit { int id; }</code><br /><code>...</code><br /><code>Set<Rabbit> rabbits = new TreeSet<>();</code><br /><code>rabbits.add(new Rabbit());",
+    question: "Why won't the following snippet compile, and what are the two ways this can be resolved?<br /><code>class Rabbit { int id; }</code><br /><code>...</code><br /><code>Set<Rabbit> rabbits = new TreeSet<>();</code><br /><code>rabbits.add(new Rabbit());</code>",
     page: 151,
-    answer: "<code>Rabbit</code> does not implement <code>Comparable</code>, so a <code>ClassCastException</code> will be thrown. This can be resolved by either:<br />1. make the <code>Rabbit</code> class implement <code>Comparable</code>.<br />2. Pass a <code>Comparator</code> to the <code>TreeSet</code> constructor, e.g. <code>new TreeSet<>((rabbit1, rabbit2) -> rabbit1.id - rabbit2.id);"
+    answer: "<code>Rabbit</code> does not implement <code>Comparable</code>, so a <code>ClassCastException</code> will be thrown. This can be resolved by either:<br />1. make the <code>Rabbit</code> class implement <code>Comparable</code>.<br />2. Pass a <code>Comparator</code> to the <code>TreeSet</code> constructor, e.g. <code>new TreeSet<>((rabbit1, rabbit2) -> rabbit1.id - rabbit2.id);</code>"
   },
   {
     question: "What is the method signature of the <code>List.replaceAll</code> method, and what does it do?",
@@ -428,27 +428,27 @@ var questions = [
   {
     question: "What is the method signature for the <code>Supplier</code> abstract method?",
     page: 173,
-    answer: "<code>public T get()"
+    answer: "<code>public T get()</code>"
   },
   {
     question: "What is the method signature for the <code>Consumer</code> abstract method?",
     page: 173,
-    answer: "<code>public T accept(T t)"
+    answer: "<code>public T accept(T t)</code>"
   },
   {
     question: "What is the method signature for the <code>Predicate</code> abstract method?",
     page: 173,
-    answer: "<code>public boolean test(T t)"
+    answer: "<code>public boolean test(T t)</code>"
   },
   {
     question: "What is the method signature for the <code>Function</code> abstract method?",
     page: 173,
-    answer: "<code>public R apply(T t)"
+    answer: "<code>public R apply(T t)</code>"
   },
   {
     question: "What is the method signature for the <code>UnaryOperator</code> abstract method?",
     page: 173,
-    answer: "<code>public T apply(T t)"
+    answer: "<code>public T apply(T t)</code>"
   },
   {
     question: "What is the difference between a <code>Function</code> and a <code>UnaryOperator</code>?",
@@ -458,22 +458,22 @@ var questions = [
   {
     question: "How do you create an <code>Optional</code> instance of a specific value?",
     page: 182,
-    answer: "<code>Optional.of(value)"
+    answer: "<code>Optional.of(value)</code>"
   },
   {
     question: "How do you create an unpopulated <code>Optional</code> instance?",
     page: 182,
-    answer: "<code>Optional.empty()"
+    answer: "<code>Optional.empty()</code>"
   },
   {
     question: "How do you check if an <code>Optional</code> is <code>null</code> or not?",
     page: 183,
-    answer: "<code>optional.isEmpty()"
+    answer: "<code>optional.isEmpty()</code>"
   },
   {
     question: "How do you retrieve the value from an <code>Optional</code> instance?",
     page: 183,
-    answer: "<code>optional.get()"
+    answer: "<code>optional.get()</code>"
   },
   {
     question: "What happens when you call <code>get()</code> on an empty <code>Optional</code> instance?",
@@ -483,7 +483,7 @@ var questions = [
   {
     question: "What is the easiest way of creating an <code>Optional</code> instance, where the instance is empty if the provided value is <code>null</code>?",
     page: 183,
-    answer: "<code>Optional o = Optional.ofNullableValue(value);"
+    answer: "<code>Optional o = Optional.ofNullableValue(value);</code>"
   },
   {
     question: "How would you specify a piece of code to run if a <code>optional.isPresent()</code>?",
@@ -498,12 +498,12 @@ var questions = [
   {
     question: "How would you get the value from an <code>Optional</code> instance, or use a <code>Supplier</code> to retrieve a different value if <code>!optional.isPresent()</code>?",
     page: 184,
-    answer: "<code>orElseGet(Supplier s)"
+    answer: "<code>orElseGet(Supplier s)</code>"
   },
   {
     question: "How would you throw an exception if <code>!optional.isPresent()</code>?",
     page: 184,
-    answer: "<code>orElseThrow(Supplier s)"
+    answer: "<code>orElseThrow(Supplier s)</code>"
   },
   {
     question: "What are the three parts of a stream pipeline?",
@@ -513,7 +513,7 @@ var questions = [
   {
     question: "How do you create an empty stream?",
     page: 188,
-    answer: "<code>Stream.empty()"
+    answer: "<code>Stream.empty()</code>"
   },
   {
     question: "How do would you determine the number of elements in a stream? What is the method signature?",
@@ -523,17 +523,17 @@ var questions = [
   {
     question: "How would you get the min/max elements from a stream? What are the method signatures?",
     page: 191,
-    answer: "<code>Optional<T> min(Comparator<? super T> comparator)</code><br /><code>Optional<T> max(Comparator<? super T> comparator)"
+    answer: "<code>Optional<T> min(Comparator<? super T> comparator)</code><br /><code>Optional<T> max(Comparator<? super T> comparator)</code>"
   },
   {
     question: "What do the <code>Stream.findFirst</code> and <code>Stream.findAny</code> methods do, and what are their method signatures?",
     page: 191,
-    answer: "Both methods return the first element they find, although <code>findFirst</code> forces the stream to retrieve the sequentially first element. <code>findAny</code> is therefore useful for parallel streams.<br /><code>Optional<T> findFirst()</code><br /><code>Optional<T> findAny()"
+    answer: "Both methods return the first element they find, although <code>findFirst</code> forces the stream to retrieve the sequentially first element. <code>findAny</code> is therefore useful for parallel streams.<br /><code>Optional<T> findFirst()</code><br /><code>Optional<T> findAny()</code>"
   },
   {
     question: "What is the only terminal stream operation with a <code>void</code> return type?",
     page: 192,
-    answer: "<code>forEach"
+    answer: "<code>forEach</code>"
   },
   {
     question: "Can you use a for each loop on a stream?",
@@ -556,29 +556,29 @@ var questions = [
     answer: "<code><R> R collect(Supplier<R> supplier, BiConsumer<R, ? super T> accumulator, BiConsumer<R, R> combiner)</code><br />- The <code>supplier</code> provides the initial value. The <code>accumulator</code> specifies how the elements should be added to the supplied object. The <code>combiner</code> specifies how these objects should be combined. This is useful for parallel streams when combining the results from each thread.<br /><br /><code><R,A> R collect(Collector<? super T, A, R> collector)</code><br />- Collects with a <code>Collector</code>."
   },
   {
-    question: "How would you ensure a <code>Stream</code> contains no two objects such that <code>obj1 == obj2",
+    question: "How would you ensure a <code>Stream</code> contains no two objects such that <code>obj1 == obj2</code>",
     page: 196,
-    answer: "<code>stream.distinct()"
+    answer: "<code>stream.distinct()</code>"
   },
   {
     question: "How would you skip the first <code>x</code> values of a <code>Stream</code>?",
     page: 197,
-    answer: "<code>stream.skip(x)"
+    answer: "<code>stream.skip(x)</code>"
   },
   {
     question: "How would you ensure that a <code>Stream</code> iterates over no more than <code>x</code> elements?",
     page: 197,
-    answer: "<code>stream.limit(x)"
+    answer: "<code>stream.limit(x)</code>"
   },
   {
     question: "What does the <code>Stream.flatMap</code> method do, and how would you use it?",
     page: 198,
-    answer: "Combines the elements contained within each stream element into one stream, e.g. when combining the elements of a stream of <code>List</code>s.<br />To use the method, you must supply a <code>Function</code> that takes the current type and returns a <code>Stream"
+    answer: "Combines the elements contained within each stream element into one stream, e.g. when combining the elements of a stream of <code>List</code>s.<br />To use the method, you must supply a <code>Function</code> that takes the current type and returns a <code>Stream</code>"
   },
   {
     question: "How do you order the elements of a <code>Stream</code>, and what are the method signatures?",
     page: 198,
-    answer: "<code>Stream<T> sorted()</code> - uses the <code>Comparable</code> interface.<br /><code>Stream.sorted(Comparator<? super T> comparator)</code> - uses the provided <code>Comparator"
+    answer: "<code>Stream<T> sorted()</code> - uses the <code>Comparable</code> interface.<br /><code>Stream.sorted(Comparator<? super T> comparator)</code> - uses the provided <code>Comparator</code>"
   },
   {
     question: "What does the <code>Stream.peek</code> method do?",
