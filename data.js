@@ -483,7 +483,7 @@ var questions = [
   {
     question: "What is the easiest way of creating an <code>Optional</code> instance, where the instance is empty if the provided value is <code>null</code>?",
     page: 183,
-    answer: "<code>Optional o = Optional.ofNullableValue(value);</code>"
+    answer: "<code>Optional o = Optional.ofNullable(value);</code>"
   },
   {
     question: "How would you specify a piece of code to run if a <code>optional.isPresent()</code>?",

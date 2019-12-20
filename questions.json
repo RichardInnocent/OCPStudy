@@ -482,7 +482,7 @@
     {
       "question": "What is the easiest way of creating an `Optional` instance, where the instance is empty if the provided value is `null`?",
       "page": 183,
-      "answer": "`Optional o = Optional.ofNullableValue(value);`"
+      "answer": "`Optional o = Optional.ofNullable(value);`"
     },
     {
       "question": "How would you specify a piece of code to run if a `optional.isPresent()`?",
