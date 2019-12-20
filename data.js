@@ -556,7 +556,7 @@ var questions = [
     answer: "<code>&lt;R&gt; R collect(Supplier&lt;R&gt; supplier, BiConsumer&lt;R, ? super T&gt; accumulator, BiConsumer&lt;R, R&gt; combiner)</code><br />- The <code>supplier</code> provides the initial value. The <code>accumulator</code> specifies how the elements should be added to the supplied object. The <code>combiner</code> specifies how these objects should be combined. This is useful for parallel streams when combining the results from each thread.<br /><br /><code>&lt;R,A&gt; R collect(Collector&lt;? super T, A, R&gt; collector)</code><br />- Collects with a <code>Collector</code>."
   },
   {
-    question: "How would you ensure a <code>Stream</code> contains no two objects such that <code>obj1 == obj2</code>",
+    question: "How would you ensure a <code>Stream</code> contains no two objects such that <code>obj1.equals(obj2)</code>",
     page: 196,
     answer: "<code>stream.distinct()</code>"
   },
