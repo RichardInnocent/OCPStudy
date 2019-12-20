@@ -468,7 +468,7 @@ var questions = [
   {
     question: "How do you check if an <code>Optional</code> is <code>null</code> or not?",
     page: 183,
-    answer: "<code>optional.isEmpty()</code>"
+    answer: "Java 8: <code>optional.isPresent()</code><br />Java 11: <code>optional.isPresent()</code> and <code>optional.isEmpty()</code>"
   },
   {
     question: "How do you retrieve the value from an <code>Optional</code> instance?",

@@ -467,7 +467,7 @@
     {
       "question": "How do you check if an `Optional` is `null` or not?",
       "page": 183,
-      "answer": "`optional.isEmpty()`"
+      "answer": "Java 8: `optional.isPresent()`\nJava 11: `optional.isPresent()` and `optional.isEmpty()`"
     },
     {
       "question": "How do you retrieve the value from an `Optional` instance?",
