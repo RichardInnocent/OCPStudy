@@ -12,7 +12,7 @@ var questions = [
     answer: "<code>type</code> is a class (not an interface) and <code>object1</code> does not directly or indirectly extend it"
   },
   {
-    question: "Will this code compile? Why?<br /><code></code><br /><code>public interface Mother {}</code><br /><code>class Hippo extends HeavyAnimal {}</code><br /><code>...</code><br /><code>HeavyAnimal hippo = new Hippo();</code><br /><code>hippo instanceof Mother;</code>",
+    question: "Will this code compile? Why?<br /><code>public interface Mother {}</code><br /><code>class Hippo extends HeavyAnimal {}</code><br /><code>...</code><br /><code>HeavyAnimal hippo = new Hippo();</code><br /><code>hippo instanceof Mother;</code>",
     page: 8,
     answer: "Yes - unlike with classes, the compiler has no way of determining if <code>Hippo</code> implements <code>Mother</code>, as <code>Mother</code> is an interface"
   },
