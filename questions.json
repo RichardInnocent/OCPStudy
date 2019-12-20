@@ -295,11 +295,6 @@
       "answer": "`Stack`: LIFO, `push`/`pop`/`peek`\n`Queue`: FIFO, `offer`/`poll`/`peek`"
     },
     {
-      "question": "What are the adding and retrieving algorithm efficiencies for `HashMap` compared with `TreeMap`?",
-      "page": 138,
-      "answer": "Method\t`HashMap` efficiency\t`TreeMap` efficiency\nAdd\t\tO(1)\t\t\tO(log(n))\nGet\t\tO(1)\t\t\tO(log(n))"
-    },
-    {
       "question": "What is the order of the elements when `TreeMap.values()` is called?",
       "page": 140,
       "answer": "In the order of the corresponding keys (i.e. natural order of the keys)."

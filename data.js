@@ -296,11 +296,6 @@ var questions = [
     answer: "<code>Stack</code>: LIFO, <code>push</code>/<code>pop</code>/<code>peek</code><br /><code>Queue</code>: FIFO, <code>offer</code>/<code>poll</code>/<code>peek</code>"
   },
   {
-    question: "What are the adding and retrieving algorithm efficiencies for <code>HashMap</code> compared with <code>TreeMap</code>?",
-    page: 138,
-    answer: "Method	<code>HashMap</code> efficiency	<code>TreeMap</code> efficiency<br />Add		O(1)			O(log(n))<br />Get		O(1)			O(log(n))"
-  },
-  {
     question: "What is the order of the elements when <code>TreeMap.values()</code> is called?",
     page: 140,
     answer: "In the order of the corresponding keys (i.e. natural order of the keys)."
