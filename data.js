@@ -7,9 +7,9 @@ var questions = [
     answer: "<code>object == null</code>"
   },
   {
-    question: "When will <code>object1 instanceof object2</code> not compile?",
+    question: "When will <code>object1 instanceof type</code> not compile? (Where <code>type instanceof Class</code>)",
     page: 8,
-    answer: "<code>object2</code> is a class (not an interface) and <code>object1</code> does not directly or indirectly extend it"
+    answer: "<code>type</code> is a class (not an interface) and <code>object1</code> does not directly or indirectly extend it"
   },
   {
     question: "Will this code compile? Why?<br /><code></code><br /><code>public interface Mother {}</code><br /><code>class Hippo extends HeavyAnimal {}</code><br /><code>...</code><br /><code>HeavyAnimal hippo = new Hippo();</code><br /><code>hippo instanceof Mother;</code>",

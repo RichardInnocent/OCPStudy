@@ -6,9 +6,9 @@
       "answer": "`object == null`"
     },
     {
-      "question": "When will `object1 instanceof object2` not compile?",
+      "question": "When will `object1 instanceof type` not compile? (Where `type instanceof Class`)",
       "page": 8,
-      "answer": "`object2` is a class (not an interface) and `object1` does not directly or indirectly extend it"
+      "answer": "`type` is a class (not an interface) and `object1` does not directly or indirectly extend it"
     },
     {
       "question": "Will this code compile? Why?\n```\npublic interface Mother {}\nclass Hippo extends HeavyAnimal {}\n...\nHeavyAnimal hippo = new Hippo();\nhippo instanceof Mother;```",
