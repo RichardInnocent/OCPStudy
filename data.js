@@ -541,7 +541,7 @@ var questions = [
     answer: "The <code>reduce</code> function reduces the stream down to a single element.<br /><br /><code>T reduce(T identity, BinaryOperator&lt;T&gt; accumulator)</code><br /><code>identity</code> is the initial value, and <code>accumulator</code> defines how the elements will be merged.<br /><br /><code>Optional&lt;T&gt; reduce(BinaryOperator&lt;T&gt; accumulator)</code><br />Similar to the previous, except the initial value can be omitted. This will return...:<br />- An empty <code>Optional</code> when the stream is empty<br />- The element, if the stream only contains one element<br />- The accumulated value, if the stream has multiple elements.<br /><br /><code>&lt;U&gt; U reduce(U identity, BiFunction&lt;U, ? super T, U&gt; accumulator, BinaryOperator&lt;U&gt; combiner)</code><br />This is useful in parallel streams as it allows the JVM to create intermediate combined elements, and then combine all of those at the end."
   },
   {
-    question: "What is the different between <code>Stream.reduce</code> and <code>Stream.collect</code>?",
+    question: "What is the difference between <code>Stream.reduce</code> and <code>Stream.collect</code>?",
     page: 194,
     answer: "<code>reduce</code> creates new objects at each combining step. <code>collect</code> is a mutable reduction, i.e. the same mutable object is used."
   },
