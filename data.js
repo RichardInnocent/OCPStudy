@@ -174,7 +174,12 @@ var questions = [
   {
     question: "What will be the results of the following?:<br /><code>int[] array = new int[]{4,6,1,5,8};</code><br /><code>System.out.println(Arrays.binarySearch(array, 4));</code><br /><code>System.out.println(Arrays.binarySearch(array, 0));</code><br /><code>System.out.println(Arrays.binarySearch(array, 3));</code>",
     page: 106,
-    answer: "0<br />-1<br />-2"
+    answer: "The results are undefined. The array must be ordered."
+  },
+  {
+    question: "What will be the results of the following?:<br /><code>int[] array = new int[]{4,6,1,5,8};Arrays.sort(array);</code><br /><code>System.out.println(Arrays.binarySearch(array, 4));</code><br /><code>System.out.println(Arrays.binarySearch(array, 0));</code><br /><code>System.out.println(Arrays.binarySearch(array, 3));</code>",
+    page: 106,
+    answer: "<code>1</code><br /><code>-1</code><br /><code>-2</code>"
   },
   {
     question: "What is type erasure?",

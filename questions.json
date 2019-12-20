@@ -173,7 +173,12 @@
     {
       "question": "What will be the results of the following?:\n```int[] array = new int[]{4,6,1,5,8};\nSystem.out.println(Arrays.binarySearch(array, 4));\nSystem.out.println(Arrays.binarySearch(array, 0));\nSystem.out.println(Arrays.binarySearch(array, 3));```",
       "page": 106,
-      "answer": "0\n-1\n-2"
+      "answer": "The results are undefined. The array must be ordered."
+    },
+    {
+      "question": "What will be the results of the following?:\n```int[] array = new int[]{4,6,1,5,8};Arrays.sort(array);\nSystem.out.println(Arrays.binarySearch(array, 4));\nSystem.out.println(Arrays.binarySearch(array, 0));\nSystem.out.println(Arrays.binarySearch(array, 3));```",
+      "page": 106,
+      "answer": "```1\n-1\n-2```"
     },
     {
       "question": "What is type erasure?",
