@@ -292,7 +292,7 @@
     {
       "question": "What is the difference between a `Queue` and a `Stack`, and what are the methods called?",
       "page": 135,
-      "answer": "Stack: LIFO, push/poll/peek\nQueue: FIFO, offer/poll/peek"
+      "answer": "`Stack`: LIFO, `push`/`pop`/`peek`\n`Queue`: FIFO, `offer`/`poll`/`peek`"
     },
     {
       "question": "What are the adding and retrieving algorithm efficiencies for `HashMap` compared with `TreeMap`?",

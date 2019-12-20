@@ -293,7 +293,7 @@ var questions = [
   {
     question: "What is the difference between a <code>Queue</code> and a <code>Stack</code>, and what are the methods called?",
     page: 135,
-    answer: "Stack: LIFO, push/poll/peek<br />Queue: FIFO, offer/poll/peek"
+    answer: "<code>Stack</code>: LIFO, <code>push</code>/<code>pop</code>/<code>peek</code><br /><code>Queue</code>: FIFO, <code>offer</code>/<code>poll</code>/<code>peek</code>"
   },
   {
     question: "What are the adding and retrieving algorithm efficiencies for <code>HashMap</code> compared with <code>TreeMap</code>?",
