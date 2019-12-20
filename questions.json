@@ -485,7 +485,7 @@
       "answer": "`Optional o = Optional.ofNullable(value);`"
     },
     {
-      "question": "How would you specify a piece of code to run if a `optional.isPresent()`?",
+      "question": "How would you specify a piece of code to run if only when `optional.isPresent()`?",
       "page": 184,
       "answer": "`ifPresent(Consumer c)` - This runs the consumer code if the `Optional` instance is present."
     },

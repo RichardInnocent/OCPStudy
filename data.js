@@ -486,7 +486,7 @@ var questions = [
     answer: "<code>Optional o = Optional.ofNullable(value);</code>"
   },
   {
-    question: "How would you specify a piece of code to run if a <code>optional.isPresent()</code>?",
+    question: "How would you specify a piece of code to run if only when <code>optional.isPresent()</code>?",
     page: 184,
     answer: "<code>ifPresent(Consumer c)</code> - This runs the consumer code if the <code>Optional</code> instance is present."
   },
