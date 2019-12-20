@@ -97,7 +97,7 @@ var questions = [
     answer: "<code>Outer.this.a</code>"
   },
   {
-    question: "Can an interface be private?",
+    question: "Can an interface be <code>private</code>?",
     page: 27,
     answer: "Yes, if it is declared within a class"
   },
@@ -129,7 +129,7 @@ var questions = [
   {
     question: "Can an interface have variables?",
     page: 48,
-    answer: "Yes, but only if they are public, static and final"
+    answer: "Yes, but only if they are <code>public</code>, <code>static</code> and <code>final</code>"
   },
   {
     question: "Can an interface contain static methods?",

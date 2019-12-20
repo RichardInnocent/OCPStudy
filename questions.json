@@ -96,7 +96,7 @@
       "answer": "`Outer.this.a`"
     },
     {
-      "question": "Can an interface be private?",
+      "question": "Can an interface be `private`?",
       "page": 27,
       "answer": "Yes, if it is declared within a class"
     },
@@ -128,7 +128,7 @@
     {
       "question": "Can an interface have variables?",
       "page": 48,
-      "answer": "Yes, but only if they are public, static and final"
+      "answer": "Yes, but only if they are `public`, `static` and `final`"
     },
     {
       "question": "Can an interface contain static methods?",
