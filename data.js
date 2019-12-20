@@ -222,7 +222,7 @@ var questions = [
     answer: "Adds the element at the specified index, and moves the rest of the elements towards the end."
   },
   {
-    question: "What is the difference between <code>HashSet</code> and <code>TreeSet</code>? What is th big O notation for the addition and finding of elements in each case?",
+    question: "What is the difference between <code>HashSet</code> and <code>TreeSet</code>? What is the big O notation for the addition and finding of elements in each case?",
     page: 132,
     answer: "A <code>TreeSet</code> saves the elements in order. <code>HashSet</code> adds and finds in O(n), while <code>TreeSet</code> does these in O(log(n))"
   },

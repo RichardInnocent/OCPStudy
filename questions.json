@@ -221,7 +221,7 @@
       "answer": "Adds the element at the specified index, and moves the rest of the elements towards the end."
     },
     {
-      "question": "What is the difference between `HashSet` and `TreeSet`? What is th big O notation for the addition and finding of elements in each case?",
+      "question": "What is the difference between `HashSet` and `TreeSet`? What is the big O notation for the addition and finding of elements in each case?",
       "page": 132,
       "answer": "A `TreeSet` saves the elements in order. `HashSet` adds and finds in O(n), while `TreeSet` does these in O(log(n))"
     },
