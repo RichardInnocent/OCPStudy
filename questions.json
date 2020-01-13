@@ -583,6 +583,56 @@
       "question": "What does the `Stream.peek` method do?",
       "page": 199,
       "answer": "This is very similar to the `Stream.forEach` method, but is an intermediate operation. It allows us to inspect the elements of the stream without changing the stream."
+    },
+    {
+      "question": "What are some benefits you can gain from using a primitive stream as opposed to an object stream with the wrapper type?",
+      "page": 205,
+      "answer": "The primitive streams have additional methods that are useful for statistical analysis, e.g. `max()` and `avg()`"
+    },
+    {
+      "question": "How would you generate an infinite stream of random `double` primitives using the `Math.random()` method?",
+      "page": 206,
+      "answer": "`DoubleStream.generate(Math::random)`"
+    },
+    {
+      "question": "How would you generate an infinite stream of `double` primitives, starting at 0.5 and progressively halving in size?",
+      "page": 206,
+      "answer": "`DoubleStream.iterate(0.5, d -> d / 2)`"
+    },
+    {
+      "question": "What are the two methods to create a stream of `int` primitives?",
+      "page": 207,
+      "answer": "`IntStream.range(x, y)`\nCreates a stream starting from `x` and counting to `y-1`\n\n`IntStream.rangeClosed(x, y)`\nCreates a stream starting from `x` and counting to `y` (inclusive)"
+    },
+    {
+      "question": "What methods would you use to convert a `Stream<?>`, `s` to a primitive stream?",
+      "page": 207,
+      "answer": "`s.toMapToInt`, `s.mapToLong`, `s.mapToDouble`"
+    },
+    {
+      "question": "How would you convert a primitive stream, `s`, to an object stream?",
+      "page": 207,
+      "answer": "`s.mapToObj`"
+    },
+    {
+      "question": "What is the difference in method calls from an `Optional<Double>` and an `OptionalDouble`?",
+      "page": 208,
+      "answer": "`Optional<Double>`: `get()`\n`OptionalDouble`: `getAsDouble()`"
+    },
+    {
+      "question": "What are the return type for the following methods on `IntStream`?:\n`max()`\n`sum()`\n`avg()`",
+      "page": 209,
+      "answer": "`max()`: `OptionalInt`\n`sum()`: `int`\n`avg()`: `OptionalInt`"
+    },
+    {
+      "question": "How would you get the range from an `IntStream`?",
+      "page": 210,
+      "answer": "Use `IntSummaryStatistics`, i.e.:\n```IntSummaryStatistics stats = intStream.summaryStatistics();\nint range = stats.getMax() - stats.getMin();```"
+    },
+    {
+      "question": "How can you create a function that maps to an `int` primitive, and what is the equivalent of the `apply` method called?",
+      "page": 212,
+      "answer": "`ToIntFunction`, `applyAsInt()`"
     }
   ]
 }

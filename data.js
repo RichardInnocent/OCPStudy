@@ -584,5 +584,55 @@ var questions = [
     question: "What does the <code>Stream.peek</code> method do?",
     page: 199,
     answer: "This is very similar to the <code>Stream.forEach</code> method, but is an intermediate operation. It allows us to inspect the elements of the stream without changing the stream."
+  },
+  {
+    question: "What are some benefits you can gain from using a primitive stream as opposed to an object stream with the wrapper type?",
+    page: 205,
+    answer: "The primitive streams have additional methods that are useful for statistical analysis, e.g. <code>max()</code> and <code>avg()</code>"
+  },
+  {
+    question: "How would you generate an infinite stream of random <code>double</code> primitives using the <code>Math.random()</code> method?",
+    page: 206,
+    answer: "<code>DoubleStream.generate(Math::random)</code>"
+  },
+  {
+    question: "How would you generate an infinite stream of <code>double</code> primitives, starting at 0.5 and progressively halving in size?",
+    page: 206,
+    answer: "<code>DoubleStream.iterate(0.5, d -&gt; d / 2)</code>"
+  },
+  {
+    question: "What are the two methods to create a stream of <code>int</code> primitives?",
+    page: 207,
+    answer: "<code>IntStream.range(x, y)</code><br />Creates a stream starting from <code>x</code> and counting to <code>y-1</code><br /><br /><code>IntStream.rangeClosed(x, y)</code><br />Creates a stream starting from <code>x</code> and counting to <code>y</code> (inclusive)"
+  },
+  {
+    question: "What methods would you use to convert a <code>Stream&lt;?&gt;</code>, <code>s</code> to a primitive stream?",
+    page: 207,
+    answer: "<code>s.toMapToInt</code>, <code>s.mapToLong</code>, <code>s.mapToDouble</code>"
+  },
+  {
+    question: "How would you convert a primitive stream, <code>s</code>, to an object stream?",
+    page: 207,
+    answer: "<code>s.mapToObj</code>"
+  },
+  {
+    question: "What is the difference in method calls from an <code>Optional&lt;Double&gt;</code> and an <code>OptionalDouble</code>?",
+    page: 208,
+    answer: "<code>Optional&lt;Double&gt;</code>: <code>get()</code><br /><code>OptionalDouble</code>: <code>getAsDouble()</code>"
+  },
+  {
+    question: "What are the return type for the following methods on <code>IntStream</code>?:<br /><code>max()</code><br /><code>sum()</code><br /><code>avg()</code>",
+    page: 209,
+    answer: "<code>max()</code>: <code>OptionalInt</code><br /><code>sum()</code>: <code>int</code><br /><code>avg()</code>: <code>OptionalInt</code>"
+  },
+  {
+    question: "How would you get the range from an <code>IntStream</code>?",
+    page: 210,
+    answer: "Use <code>IntSummaryStatistics</code>, i.e.:<br /><code>IntSummaryStatistics stats = intStream.summaryStatistics();</code><br /><code>int range = stats.getMax() - stats.getMin();</code>"
+  },
+  {
+    question: "How can you create a function that maps to an <code>int</code> primitive, and what is the equivalent of the <code>apply</code> method called?",
+    page: 212,
+    answer: "<code>ToIntFunction</code>, <code>applyAsInt()</code>"
   }
 ];
