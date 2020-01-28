@@ -54,7 +54,7 @@ function changeState() {
   } else if (currentState == State.SHOWING_QUESTION) {
     currentState = State.SHOWING_ANSWER;
   } else if (currentState == State.SHOWING_ANSWER) {
-    currentState = currentQuestion < questions.length ?
+    currentState = (currentQuestion+1) < questions.length ?
         State.SHOWING_QUESTION : State.COMPLETE;
     currentQuestion++;
   } else {
@@ -69,13 +69,17 @@ function updateElements() {
   } else {
     FLAG_BUTTON.disabled = true;
   }
-  if (currentState == State.NOT_STARTED || currentState == State.COMPLETE) {
+
+  if (currentState == State.NOT_STARTED) {
     SHOW_FLAGGED_BUTTON.style.display = "none";
+    FLAG_BUTTON.style.display = "none";
+  } else if (currentState == State.COMPLETE) {
     FLAG_BUTTON.style.display = "none";
   } else {
     SHOW_FLAGGED_BUTTON.style.display = null;
     FLAG_BUTTON.style.display = null;
   }
+
   let elements = getElements();
   updateElement(QUESTION_NO_ELEMENT, elements.questionNo);
   updateElement(QUESTION_ELEMENT, elements.question);
@@ -121,7 +125,7 @@ function getElements() {
     return {
       questionNo: "Question " + (currentQuestion+1) + " (of " + questions.length + ")",
       question: fullQuestion[QUESTION_ID],
-      button: currentQuestion < questions.length ? "Next question" : "End quiz",
+      button: (currentQuestion+1) < questions.length ? "Next question" : "End quiz",
       answer: fullQuestion[ANSWER_ID],
       pageNo: pageNo
     }
