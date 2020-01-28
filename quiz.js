@@ -1,4 +1,6 @@
 const QUESTION_ID = "question";
+const ANSWER_ID = "answer";
+
 const QUESTION_NO_ELEMENT = document.getElementById("questionNo");
 const QUESTION_ELEMENT = document.getElementById(QUESTION_ID);
 const QUIZ_BUTTON_ELEMENT = document.getElementById("quizButton");
@@ -22,6 +24,7 @@ const State = {
 let currentState = State.NOT_STARTED;
 let flaggedQuestions = [];
 
+SHOW_FLAGGED_BUTTON.disabled = true;
 updateElements();
 
 function shuffle(array) {
@@ -61,7 +64,18 @@ function changeState() {
 
 
 function updateElements() {
-  FLAG_BUTTON.style.display = currentState == State.SHOWING_ANSWER ? null : "none";
+  if (currentState == State.SHOWING_ANSWER) {
+    FLAG_BUTTON.disabled = false;
+  } else {
+    FLAG_BUTTON.disabled = true;
+  }
+  if (currentState == State.NOT_STARTED || currentState == State.COMPLETE) {
+    SHOW_FLAGGED_BUTTON.style.display = "none";
+    FLAG_BUTTON.style.display = "none";
+  } else {
+    SHOW_FLAGGED_BUTTON.style.display = null;
+    FLAG_BUTTON.style.display = null;
+  }
   let elements = getElements();
   updateElement(QUESTION_NO_ELEMENT, elements.questionNo);
   updateElement(QUESTION_ELEMENT, elements.question);
@@ -125,7 +139,7 @@ QUIZ_BUTTON_ELEMENT.onclick = function() {
   updateElements();
 }
 
-SHOW_FLAGGED_BUTTON.style.display = "none";
+
 SHOW_FLAGGED_BUTTON.onclick = function() {
   FLAGGED_MODAL_TEXT.innerHTML = buildModalContent();
   FLAGGED_MODAL.style.display = "block";
@@ -165,5 +179,6 @@ CLOSE_MODAL.onclick = function() {
 
 FLAG_BUTTON.onclick = function() {
   flaggedQuestions.push(questions[currentQuestion]);
-  SHOW_FLAGGED_BUTTON.style.display = null;
+  FLAG_BUTTON.disabled = true;
+  SHOW_FLAGGED_BUTTON.disabled = false;
 }
